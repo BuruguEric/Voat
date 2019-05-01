@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title','| Homepage')
+@section('title','| Movies')
 
 @section('posts')
 <article id="post-271" class="entry-tpl-stream post-271 post type-post status-publish format-standard has-post-thumbnail category-bimber-funny tag-bimber-dogs tag-bimber-dont-miss tag-bimber-food tag-bimber-home snax_format-text" itemscope=""
@@ -8,7 +8,7 @@
 	<header class="entry-header">
 		<div class="entry-before-title"></div>
 		<h2 class="g1-alpha g1-alpha-1st entry-title" itemprop="headline">
-			<a href="https://bimber.bringthepixel.com/gagster/we-make-it-easy/" rel="bookmark">We make it easys</a>
+        <a href="https://bimber.bringthepixel.com/gagster/we-make-it-easy/" rel="bookmark">We make it easy</a>
 		</h2>
 		<div class="entry-after-title"></div>
 	</header>

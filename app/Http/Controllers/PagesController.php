@@ -12,10 +12,22 @@ class PagesController extends Controller
     public function sports(){
         return view('pages.sports');
     }
-    public function cars(){
-        return view('pages.cars');
+    public function gif(){
+        return view('pages.gif');
     }
-    public function food(){
-        return view('pages.food');
+    public function gaming(){
+        return view('pages.gaming');
+    }
+    public function music(){
+        return view('pages.music');
+    }
+    public function movies(){
+        return view('pages.movies');
+    }
+    public function aww(){
+        return view('pages.aww');
+    }
+    public function books(){
+        return view('pages.books');
     }
 }
