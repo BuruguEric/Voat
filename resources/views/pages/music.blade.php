@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title','| Homepage')
+@section('title','| Music')
 
 @section('posts')
 <article id="post-271" class="entry-tpl-stream post-271 post type-post status-publish format-standard has-post-thumbnail category-bimber-funny tag-bimber-dogs tag-bimber-dont-miss tag-bimber-food tag-bimber-home snax_format-text" itemscope=""

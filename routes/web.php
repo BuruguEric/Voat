@@ -13,13 +13,17 @@
 
 Route::get('/', 'PagesController@index');
 Route::get('/sports', 'PagesController@sports');
-Route::get('/cars', 'PagesController@cars');
-Route::get('/food', 'PagesController@food');
+Route::get('/aww', 'PagesController@aww');
+Route::get('/music', 'PagesController@music');
+Route::get('/movies', 'PagesController@movies');
+Route::get('/gif', 'PagesController@gif');
+Route::get('/gaming', 'PagesController@gaming');
+Route::get('/books', 'PagesController@books');
 
 Auth::routes();
 
 Auth::routes(['verify' => true]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/index', 'HomeController@index')->name('index');
 
 Route::get('/admin','AdminController@admin')->name('admin');

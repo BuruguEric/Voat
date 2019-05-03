@@ -1,1 +1,0 @@
-This bag is about Foodstuffs.
