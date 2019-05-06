@@ -1,7 +1,11 @@
 <!DOCTYPE html>
  <html class="no-js g1-off-outside" lang="en-US"
  prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# og: http://ogp.me/ns#"><!--<![endif]-->
- <head><meta charset="UTF-8"/>
+ <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- CSRF Token -->
+<meta name="csrf-token" content="{{ csrf_token() }}">
+<meta charset="UTF-8"/>
  <link rel="profile" href="http://gmpg.org/xfn/11"/>
  <link rel="pingback" href="https://bimber.bringthepixel.com/gagster/xmlrpc.php"/>
  <link type="text/css" media="all" href="https://bimber.bringthepixel.com/gagster/wp-content/cache/autoptimize/3/css/autoptimize_ae396ce2662ed383d7c106ee0b76562b.css" rel="stylesheet" />
@@ -222,10 +226,13 @@ document.documentElement.classList.remove("g1-nsfw-off"))};try{var nsfwmode=loca
  action="https://bimber.bringthepixel.com/gagster/"> <label> <span class="screen-reader-text">Search for:</span> <input type="search" class="search-field"
  placeholder="Search &hellip;"
  value="" name="s"
- title="Search for:" /> </label> <button class="search-submit">Search</button></form><div class="g1-searches g1-searches-ajax"></div></div></div></div><nav class="g1-drop g1-drop-before g1-drop-the-user  g1-drop-m g1-drop-icon "> 
-	 <a class="g1-drop-toggle snax-login-required" href="#"> 
+ title="Search for:" /> </label> <button class="search-submit">Search</button></form><div class="g1-searches g1-searches-ajax"></div></div></div></div>
+ <nav class="g1-drop g1-drop-before g1-drop-the-user  g1-drop-m g1-drop-icon "> 
+	 <a class="g1-drop-toggle snax-login-required" href=""> 
 	 <span class="g1-drop-toggle-icon"></span>
-	<span class="g1-drop-toggle-text">Login</span> <span class="g1-drop-toggle-arrow"></span> </a></nav><div class="g1-drop g1-drop-before g1-drop-create"> 
+	<span class="g1-drop-toggle-text">Login</span> <span class="g1-drop-toggle-arrow"></span> </a>
+</nav>
+<div class="g1-drop g1-drop-before g1-drop-create"> 
 		<a class="g1-button g1-button-solid snax-button snax-button-create snax-button-create-dropdown g1-drop-toggle g1-button-m"
  href="https://bimber.bringthepixel.com/gagster/frontend-submission/">Create 
  <span class="g1-drop-toggle-arrow"></span> </a><div class="g1-drop-content snax"> 
@@ -423,21 +430,28 @@ document.documentElement.classList.remove("g1-nsfw-off"))};try{var nsfwmode=loca
 <div class="wp-social-login-provider-list"> <a rel="nofollow" href="https://bimber.bringthepixel.com/gagster/wp-login.php?action=wordpress_social_authenticate&#038;mode=login&#038;provider=Facebook&#038;redirect_to=https%3A%2F%2Fbimber.bringthepixel.com%2Fgagster%2F" title="Connect with Facebook" class="wp-social-login-provider wp-social-login-provider-facebook" data-provider="Facebook"> Facebook </a> 
 <a rel="nofollow" href="https://bimber.bringthepixel.com/gagster/wp-login.php?action=wordpress_social_authenticate&#038;mode=login&#038;provider=Google&#038;redirect_to=https%3A%2F%2Fbimber.bringthepixel.com%2Fgagster%2F" title="Connect with Google" class="wp-social-login-provider wp-social-login-provider-google" data-provider="Google"> Google </a></div><div class="wp-social-login-widget-clearing"></div></div></div></div>
 <h3 class="g1-delta"><span>Or with username:</span></h3>
-<h4 class="snax-form-legend snax-form-legend-sign-in">Sign In</h4><div class="snax-login-form">
-  <form name="loginform-in-popup" id="loginform-in-popup" action="https://bimber.bringthepixel.com/gagster/wp-login.php" method="post">
-     <div class="snax-validation-error snax-login-error-message"></div><p class="login-username"> 
-	 <label for="user_login">Username or Email Address</label> 
-	 <input type="text" name="log" id="user_login" class="input" value="" size="20" /></p>
-	 <p class="login-password"> <label for="user_pass">Password</label> 
-	 <input type="password" name="pwd" id="user_pass" class="input" value="" size="20" /></p>
-     <div id="snax-login-recaptcha"></div><p class="login-submit"> 
-	 <input type="submit" name="wp-submit" id="wp-submit" class="button button-primary" value="Log In" /> 
-	 <input type="hidden" name="redirect_to" value="https://bimber.bringthepixel.com/gagster/" /></p>
-</form></div> 
+<h4 class="snax-form-legend snax-form-legend-sign-in">Sign In</h4>
+
+<div class="snax-login-form">
+	<form name="loginform" id="" action="" method="post" accept-charset="UTF-8">
+		<div class="snax-validation-error snax-login-error-message"></div>
+		<p class="login-username"> 
+		<label for="user_login">Username or Email Address</label> 
+		<input type="text" name="email" id="user_login" class="input" value="" size="20" /></p>
+		<p class="login-password"> <label for="user_pass">Password</label> 
+		<input type="password" name="pass" id="user_pass" class="input" value="" size="20" /></p>
+		<input name="_token" type="hidden" value="{{ csrf_token() }}"/>
+		<div id="snax-login-recaptcha"></div>
+		<p class="login-submit">
+		<input type="submit" name="wp-submit" id="wp-submit" class="button button-primary" value="Log In" /> 
+		</p>
+	</form>
+</div> 
 
 <a class="snax-link-forgot-pass" href="https://bimber.bringthepixel.com/gagster/?snax_login_popup=forgot_password">Forgot password?</a>
 <p class="snax-form-tip snax-form-tip-register">Don't have an account? 
-<a href="https://bimber.bringthepixel.com/gagster/buddypress/register/">Register</a></p></div>
+<a href="{{ route('register')}}">Register</a></p>
+</div>
 <div class="snax-forgot-pass-tab snax-tab-inactive"><h2 class="g1-alpha g1-alpha-2nd">Forgot password?</h2>
 <p> Enter your account data and we will send you a link to reset your password.</p>
 <div class="snax-forgot-pass-form">
@@ -457,7 +471,8 @@ document.documentElement.classList.remove("g1-nsfw-off"))};try{var nsfwmode=loca
 <div class="snax-gdpr-tab snax-tab-inactive">
 <h2 class="g1-alpha">Log in</h2>
 <h3 class="g1-delta">Privacy Policy</h3><p></p> 
-<a class="g1-button g1-button-l g1-button-wide g1-button-solid snax-login-gdpr-accept" href="#">Accept</a></div></div>
+<a class="g1-button g1-button-l g1-button-wide g1-button-solid snax-login-gdpr-accept" href="#">Accept</a></div>
+</div>
 <div class="snax snax-notifications snax-notifications-off"><div class="snax-notification"> 
 <button class="snax-notification-close">Close</button><p class="snax-notification-text"></p></div></div>
 <div id="snax-popup-add-to-collection" class="snax white-popup mfp-hide"><h2>Add to Collection</h2>

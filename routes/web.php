@@ -24,6 +24,23 @@ Auth::routes();
 
 Auth::routes(['verify' => true]);
 
-Route::get('/index', 'HomeController@index')->name('index');
+Route::resource('Comments','CommentController');
 
-Route::get('/admin','AdminController@admin')->name('admin');
+// Authentication routes
+Route::get('Auth/login', 'Auth\LoginController@getlogin');
+Route::post('Auth/login', 'Auth\LoginController@getlogin');
+Route::get('Auth/logout', 'Auth\LoginController@getlogout');
+
+// Registration routes
+Route::get('Auth/register', 'Auth\RegisterController@getregister');
+Route::post('Auth/register', 'Auth\RegisterController@getregister');
+
+// Route::resource('/index', 'Auth\LoginController')->name('login');
+
+// Route::get('/index', 'HomeController@index')->name('index');
+
+// Route::resource('/books', [
+//     'uses' => 'Auth\LoginController@__construct',
+//     'as' => 'login'
+// ]);
+?>
