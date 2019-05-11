@@ -1,6 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
-@section('content')
+@section('title','| Login')
+
+@section('posts')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -8,6 +10,26 @@
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
+                <div id="snax-popup-content" class="snax white-popup ">
+                    <div class="snax-login-tab snax-tab-active">
+                    <h2 class="g1-alpha">Log In</h2>
+                    <h3 class="g1-delta snax-login-with-social-network">With social network:</h3>
+        
+                    <div class="snax snax-wpsl-wrapper">
+                        <div class="snax-wpsl"> 
+                        <style type="text/css">.wp-social-login-connect-with{}.wp-social-login-provider-list{}.wp-social-login-provider-list a{}.wp-social-login-provider-list img{}.wsl_connect_with_provider{}</style>
+                            <div class="wp-social-login-widget"> 
+                            <div class="wp-social-login-connect-with">Connect with a social network:</div>
+                            <div class="wp-social-login-provider-list"> 
+                            <a rel="nofollow" href="#" 
+                            title="Connect with Facebook" class="wp-social-login-provider wp-social-login-provider-facebook" data-provider="Facebook"> </a> 
+                            <a rel="nofollow" href="#" 
+                            title="Connect with Google" class="wp-social-login-provider wp-social-login-provider-google" data-provider="Google"> </a>
+                            </div>
+                            <div class="wp-social-login-widget-clearing"></div>
+                            </div>
+                        </div>
+                    </div>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -38,6 +60,10 @@
                                 @enderror
                             </div>
                         </div>
+                        
+                        <div class="form-group row">
+                            <div id="snax-login-recaptcha"></div>
+                        </div>
 
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
@@ -64,6 +90,7 @@
                                 @endif
                             </div>
                         </div>
+                        
                     </form>
                 </div>
             </div>
