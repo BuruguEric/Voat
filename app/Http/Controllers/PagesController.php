@@ -9,6 +9,9 @@ class PagesController extends Controller
     public function index(){
         return view('pages.index');
     }
+    public function top10(){
+        return view('pages.top10');
+    }
     public function sports(){
         return view('pages.sports');
     }
