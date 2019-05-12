@@ -21,25 +21,13 @@ class PagesController extends Controller
     public function music(){
         return view('pages.music');
     }
-    public function science(){
-        return view('pages.science');
-    }
-    public function programming(){
-        return view('pages.programming');
-    }
-    public function technology(){
-        return view('pages.technology');
+    public function movies(){
+        return view('pages.movies');
     }
     public function aww(){
         return view('pages.aww');
     }
     public function books(){
         return view('pages.books');
-    }
-    public function tv(){
-        return view('pages.tv');
-    }
-    public function comment(){
-        return view('pages.postForm');
     }
 }

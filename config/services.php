@@ -44,4 +44,16 @@ return [
         ],
     ],
 
+    'google' => [
+        'client_id' => '367600440171-s62aa3c0q7t0uj730p1qp8qj640srsn6.apps.googleusercontent.com', 
+        'client_secret' => 'h6mnURW0BV3oDl0t8Uwa0ZkJ', 
+        'redirect' => 'http://localhost/Voat/public/login/google/callback',
+     ],
+
+     'facebook' => [
+        'client_id' => '658056744645433', //Facebook API
+        'client_secret' => '4d28be92d47c53dca3fc6d4c2f9c1f95', //Facebook Secret
+        'redirect' => 'http://localhost/Voat/public/login/facebook/callback',
+     ],
+
 ];

@@ -12,21 +12,22 @@
 */
 
 Route::get('/', 'PagesController@index');
-Route::get('/sports', 'PagesController@sports')->name('sports');
-Route::get('/aww', 'PagesController@aww')->name('aww');
-Route::get('/tv', 'PagesController@tv')->name('tv');
-Route::get('/music', 'PagesController@music')->name('music');
-Route::get('/movies', 'PagesController@movies')->name('movies');
-Route::get('/gif', 'PagesController@gif')->name('gif');
-Route::get('/gaming', 'PagesController@gaming')->name('gaming');
-Route::get('/books', 'PagesController@books')->name('books');
-Route::get('/science', 'PagesController@science')->name('science');
-Route::get('/programming', 'PagesController@programming')->name('programming');
-Route::get('/technology', 'PagesController@technology')->name('technology');
+Route::get('/sports', 'PagesController@sports');
+Route::get('/aww', 'PagesController@aww');
+Route::get('/music', 'PagesController@music');
+Route::get('/movies', 'PagesController@movies');
+Route::get('/gif', 'PagesController@gif');
+Route::get('/gaming', 'PagesController@gaming');
+Route::get('/books', 'PagesController@books');
 
 Auth::routes();
 
-Route::get('/index', 'PagesController@index')->name('index');
+Auth::routes(['verify' => true]);
 
-Route::get('/comment', 'PagesController@comment')->name('comment');
+Route::get('/index', 'HomeController@index')->name('index');
+
+Route::get('/admin','AdminController@admin')->name('admin');
+
+Route::get('login/{provider}', 'Auth\LoginController@redirect')->where('provider','twitter|facebook|linkedin|google|github');
+Route::get('login/{provider}/callback','Auth\LoginController@Callback')->where('provider','twitter|facebook|linkedin|google|github');
 ?>

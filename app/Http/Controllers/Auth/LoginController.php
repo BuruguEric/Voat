@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+
+use App\User;
+use Socialite;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -26,7 +29,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/index';
+    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -38,22 +41,32 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    // public function login(Request $request) {
+    public function redirect($provider)
+    {
+        return Socialite::driver($provider)->redirect();
+    }
+    
+    public function Callback($provider)
+    {
+        $userSocial = Socialite::driver($provider)->stateless()->user();
+        $users = User::where(['email' => $userSocial->getEmail()])->first();
 
-    //     if (Auth::attempt ([
-    //         'email' => $request->input('email'),
-    //         'password' => $request->input('password')
-    //     ]))
-    //     {
-    //        $user = User::where('email', $request->email)->first();
-    //        if($user->is_admin()){
-    //            return redirect()->route('books');
-    //        }else{
-    //            return redirect()->route('index');
-    //        }
-    //     }
-    //     else{
-    //         return redirect()->back();
-    //     }
-    // }
+        if($users){
+            Auth::login($users);
+            return redirect('/');
+        }else{
+
+        $user = User::create([
+                'name'          => $userSocial->getName(),
+                'email'         => $userSocial->getEmail(),
+                'image'         => $userSocial->getAvatar(),
+                'provider_id'   => $userSocial->getId(),
+                'provider'      => $provider,
+            ]);
+
+         return redirect()->route('index');
+        }
+    }
+
+    
 }
