@@ -803,37 +803,37 @@
        <nav id="g1-primary-nav" class="g1-primary-nav">
             <ul id="g1-primary-nav-menu" class="g1-primary-nav-menu">
             <li id="menu-item-1000000" class="menu-item menu-item-type-g1-top menu-item-object-page menu-item-g1-standard menu-item-1000000">
-            <a href="{{route('top10')}}" style="font-size:16px; font-family:'Hammersmith One';">Top<strong>10</strong></a></li>
+            <a href="{{route('top10')}}">Top<strong>10</strong></a></li>
 
             <li id="menu-item-1870" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-g1-standard menu-item-1870">
-                <a href="{{route('technology')}}" style="font-size:16px; font-family:'Hammersmith One';">Technology</a></li>
+                <a href="{{route('technology')}}" style="font-size:15px;">Technology</a></li>
 
                 <li id="menu-item-1871" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-g1-standard menu-item-1871">
-                <a href="{{route('science')}}" style="font-size:16px; font-family:'Hammersmith One';">Science</a></li>
+                <a href="{{route('science')}}" style="font-size:15px;" >Science</a></li>
 
                 <li id="menu-item-1872" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-g1-standard menu-item-1872">
-                <a href="{{route('programming')}}" style="font-size:16px; font-family:'Hammersmith One';">Programming</a></li>
+                <a href="{{route('programming')}}" style="font-size:15px;">Programming</a></li>
 
                 <li id="menu-item-1873" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-g1-standard menu-item-1873">
-                <a href="{{route('music')}}" style="font-size:16px; font-family:'Hammersmith One';">Music</a></li>
+                <a href="{{route('music')}}" style="font-size:15px;">Music</a></li>
 
                 <li id="menu-item-1874" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-g1-standard menu-item-1874">
-                <a href="{{route('gaming')}}" style="font-size:16px; font-family:'Hammersmith One';">Gaming</a></li>
+                <a href="{{route('gaming')}}" style="font-size:15px;">Gaming</a></li>
 
                 <li id="menu-item-1875" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-g1-standard menu-item-1875">
-                <a href="{{route('aww')}}" style="font-size:16px; font-family:'Hammersmith One';">Aww</a></li>
+                <a href="{{route('aww')}}" style="font-size:15px;">Aww</a></li>
 
                 <li id="menu-item-1876" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-g1-standard menu-item-1876">
-                <a href="{{route('books')}}" style="font-size:16px; font-family:'Hammersmith One';">Books</a></li>
+                <a href="{{route('books')}}" style="font-size:15px;">Books</a></li>
 
                 <li id="menu-item-1877" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-g1-standard menu-item-1877">
-                <a href="{{route('gif')}}" style="font-size:16px; font-family:'Hammersmith One';">GIFs</a></li>
+                <a href="{{route('gif')}}" style="font-size:15px;">GIFs</a></li>
                 
                 <li id="menu-item-1878" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-g1-standard menu-item-1878">
-                <a href="{{route('sports')}}" style="font-size:16px; font-family:'Hammersmith One';">Sports</a></li>
+                <a href="{{route('sports')}}" style="font-size:15px;">Sports</a></li>
 
                 <li id="menu-item-1879" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-g1-standard menu-item-1879">
-                <a href="{{route('tv')}}" style="font-size:16px; font-family:'Hammersmith One';">TV</a></li>
+                <a href="{{route('tv')}}" style="font-size:15px;">TV</a></li>
 
             </ul>
        </nav>
