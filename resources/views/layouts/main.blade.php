@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <head>
     <meta charset="UTF-8"/>
-    <link href="https://fonts.googleapis.com/css?family=Concert+One|Nunito" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Hammersmith+One|Nunito" rel="stylesheet"> 
     <link rel="profile" href="http://gmpg.org/xfn/11"/>
     <link rel="pingback" href="https://bimber.bringthepixel.com/gagster/xmlrpc.php"/>
     <link type="text/css" media="all" href="https://bimber.bringthepixel.com/gagster/wp-content/cache/autoptimize/3/css/autoptimize_ae396ce2662ed383d7c106ee0b76562b.css" rel="stylesheet" />
@@ -67,10 +67,16 @@
             } 
             .g1-primary-nav-menu{
              padding-top: 20px;
-             font-family: 'Concert One' !important;
-             font-size: 29px !important;
             }
             
+            
+      /* * {
+          font-family: '';
+      }
+      div {
+          font-family: '';
+      } */
+       
             
 
            .lazyloaded {
@@ -797,37 +803,37 @@
        <nav id="g1-primary-nav" class="g1-primary-nav">
             <ul id="g1-primary-nav-menu" class="g1-primary-nav-menu">
             <li id="menu-item-1000000" class="menu-item menu-item-type-g1-top menu-item-object-page menu-item-g1-standard menu-item-1000000">
-            <a href="{{route('top10')}}">Top <strong>10</strong></a></li>
+            <a href="{{route('top10')}}" style="font-size:16px; font-family:'Hammersmith One';">Top<strong>10</strong></a></li>
 
             <li id="menu-item-1870" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-g1-standard menu-item-1870">
-                <a href="{{route('technology')}}">Technology</a></li>
+                <a href="{{route('technology')}}" style="font-size:16px; font-family:'Hammersmith One';">Technology</a></li>
 
                 <li id="menu-item-1871" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-g1-standard menu-item-1871">
-                <a href="{{route('science')}}">Science</a></li>
+                <a href="{{route('science')}}" style="font-size:16px; font-family:'Hammersmith One';">Science</a></li>
 
                 <li id="menu-item-1872" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-g1-standard menu-item-1872">
-                <a href="{{route('programming')}}">Programming</a></li>
+                <a href="{{route('programming')}}" style="font-size:16px; font-family:'Hammersmith One';">Programming</a></li>
 
                 <li id="menu-item-1873" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-g1-standard menu-item-1873">
-                <a href="{{route('music')}}">Music</a></li>
+                <a href="{{route('music')}}" style="font-size:16px; font-family:'Hammersmith One';">Music</a></li>
 
                 <li id="menu-item-1874" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-g1-standard menu-item-1874">
-                <a href="{{route('gaming')}}">Gaming</a></li>
+                <a href="{{route('gaming')}}" style="font-size:16px; font-family:'Hammersmith One';">Gaming</a></li>
 
                 <li id="menu-item-1875" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-g1-standard menu-item-1875">
-                <a href="{{route('aww')}}">Aww</a></li>
+                <a href="{{route('aww')}}" style="font-size:16px; font-family:'Hammersmith One';">Aww</a></li>
 
                 <li id="menu-item-1876" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-g1-standard menu-item-1876">
-                <a href="{{route('books')}}">Books</a></li>
+                <a href="{{route('books')}}" style="font-size:16px; font-family:'Hammersmith One';">Books</a></li>
 
                 <li id="menu-item-1877" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-g1-standard menu-item-1877">
-                <a href="{{route('gif')}}">GIFs</a></li>
+                <a href="{{route('gif')}}" style="font-size:16px; font-family:'Hammersmith One';">GIFs</a></li>
                 
                 <li id="menu-item-1878" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-g1-standard menu-item-1878">
-                <a href="{{route('sports')}}">Sports</a></li>
+                <a href="{{route('sports')}}" style="font-size:16px; font-family:'Hammersmith One';">Sports</a></li>
 
                 <li id="menu-item-1879" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-g1-standard menu-item-1879">
-                <a href="{{route('tv')}}">TV</a></li>
+                <a href="{{route('tv')}}" style="font-size:16px; font-family:'Hammersmith One';">TV</a></li>
 
             </ul>
        </nav>
@@ -1298,14 +1304,8 @@
    var bimber_front_microshare = "[]";</script> 
    <script type='text/javascript'>var mc4wp_forms_config = [];</script> <!--[if lte IE 9]> 
    <script type='text/javascript' src='https://bimber.bringthepixel.com/gagster/wp-content/plugins/mailchimp-for-wp/assets/js/third-party/placeholders.min.js?ver=4.3.3'>
-   </script> <![endif]--><div class="g1-popup g1-popup-newsletter"><div class="g1-popup-overlay"></div><div class="g1-popup-inner">
-   <div id="bimber-mc4wp-form-counter-2" class="g1-newsletter g1-newsletter-vertical "><div class="g1-newsletter-cover">
-   <div class="g1-newsletter-cover-background" style="background-image:url(https://bimber.bringthepixel.com/gagster/wp-content/uploads/sites/3/2018/07/newsletter-popup-visual.jpg);"></div></div>
+   </script> <![endif]-->
    
-   </div> 
-   <a href="#" class="g1-popup-closer">Close</a></div></div>
-
-
 
    <div class="g1-slideup-wrap">
    <div class="g1-slideup-base"></div>
