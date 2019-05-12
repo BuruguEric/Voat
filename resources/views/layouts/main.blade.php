@@ -1,6 +1,7 @@
 <!DOCTYPE html> 
 <head>
     <meta charset="UTF-8"/>
+    <link href="https://fonts.googleapis.com/css?family=Concert+One|Nunito" rel="stylesheet"> 
     <link rel="profile" href="http://gmpg.org/xfn/11"/>
     <link rel="pingback" href="https://bimber.bringthepixel.com/gagster/xmlrpc.php"/>
     <link type="text/css" media="all" href="https://bimber.bringthepixel.com/gagster/wp-content/cache/autoptimize/3/css/autoptimize_ae396ce2662ed383d7c106ee0b76562b.css" rel="stylesheet" />
@@ -47,6 +48,7 @@
             content: "\f007";
             font-size: 24px !important;
             margin-right: 12px;
+            color:white;
             }
            .meme::before { 
             content: "\f066";
@@ -60,9 +62,16 @@
             .backtotop::before { 
             content: "\f30c";
             }
-
-
-
+            :hover {
+            color:#45b7e0 !important;
+            } 
+            .g1-primary-nav-menu{
+             padding-top: 20px;
+             font-family: 'Concert One' !important;
+             font-size: 29px !important;
+            }
+            
+            
 
            .lazyloaded {
                opacity: 1;
@@ -76,16 +85,18 @@
            }
            iframe.lazyloaded {
                opacity: 1;
-           }</style> <script type="text/javascript">var ajaxurl = 'https://bimber.bringthepixel.com/gagster/wp-admin/admin-ajax.php';</script> <style>@font-face {
+           }</style> <script type="text/javascript">var ajaxurl = 'https://bimber.bringthepixel.com/gagster/wp-admin/admin-ajax.php';</script> 
+           {{-- <style>@font-face {
            font-family: "bimber";
-                               src:url("https://bimber.bringthepixel.com/gagster/wp-content/themes/bimber/css/theme_ver/bimber/fonts/bimber.eot");
+            src:url("https://bimber.bringthepixel.com/gagster/wp-content/themes/bimber/css/theme_ver/bimber/fonts/bimber.eot");
                src:url("https://bimber.bringthepixel.com/gagster/wp-content/themes/bimber/css/theme_ver/bimber/fonts/bimber.eot?#iefix") format("embedded-opentype"),
                url("https://bimber.bringthepixel.com/gagster/wp-content/themes/bimber/css/theme_ver/bimber/fonts/bimber.woff") format("woff"),
                url("https://bimber.bringthepixel.com/gagster/wp-content/themes/bimber/css/theme_ver/bimber/fonts/bimber.ttf") format("truetype"),
                url("https://bimber.bringthepixel.com/gagster/wp-content/themes/bimber/css/theme_ver/bimber/fonts/bimber.svg#bimber") format("svg");
-                   font-weight: normal;
+            font-weight: normal;
            font-style: normal;
-       }</style><style type="text/css" media="screen" id="g1-dynamic-styles">body.g1-layout-boxed .g1-body-inner {
+       }</style> --}}
+       <style type="text/css" media="screen" id="g1-dynamic-styles">body.g1-layout-boxed .g1-body-inner {
    background-color: #e6e6e6;
    }
    
@@ -135,7 +146,6 @@
    background-color: #45b7e0;
    color: #ffffff;
    }
-   
    
    
    .g1-quick-nav-tabs .menu-item-type-g1-trending > a,
@@ -208,6 +218,7 @@
    .g1-hb-row-normal  .g1-primary-nav {
        margin-top: 0px;
        margin-bottom: 0px;
+       height: 70px;       /* HEIGHT OF NAV BAR */
    }
    
    /*customizer_preview_margins_end*/
@@ -229,7 +240,7 @@
    .g1-header > .g1-row-background {
        
    
-       background-color: #23282d;
+       background-color: #23282d; 
    
        }
    
@@ -298,7 +309,7 @@
        :root {
            --g1-hbb-itxt-color:#ffffff;
            --g1-hbb-atxt-color:#45b7e0;
-           --g1-hbb-bg-color:#23282d;
+           --g1-hbb-bg-color:#24243e;  /* #23282d */ /* WHERE NAV BAR COLOR IS*/ 
            --g1-hbb-border-color:#ff0000;
        }
    
@@ -617,7 +628,6 @@
    }
    
    
-   
    .g1-dark .g1-meta { color: rgba(255, 255, 255, 0.6); }
    .g1-dark .g1-meta a { color: rgba(255, 255, 255, 0.8); }
    .g1-dark .g1-meta a:hover { color: rgba(255, 255, 255, 1); }
@@ -765,13 +775,6 @@
    </head>
    
 <body class="home-page bp-legacy home blog wp-embed-responsive snax-hoverable g1-layout-stretched g1-hoverable g1-has-mobile-logo g1-sidebar-normal no-js" itemscope itemtype="http://schema.org/WebPage">
-    <div class="g1-iframe-bar"> 
-        <a href="http://themeforest.net/item/bimber-viral-buzz-wordpress-theme/14493994?ref=bringthepixel" class="g1-iframe-bar-logo"></a>
-        <div class="g1-iframe-bar-actions"> 
-        <a href="http://themeforest.net/item/bimber-viral-buzz-wordpress-theme/14493994?ref=bringthepixel" class="g1-iframe-bar-action-buy"></a> 
-        <a href="#" class="g1-iframe-bar-action-close"></a>
-        </div>
-    </div>
     
     <div class="g1-body-inner">
         <div id="page">
@@ -794,37 +797,37 @@
        <nav id="g1-primary-nav" class="g1-primary-nav">
             <ul id="g1-primary-nav-menu" class="g1-primary-nav-menu">
             <li id="menu-item-1000000" class="menu-item menu-item-type-g1-top menu-item-object-page menu-item-g1-standard menu-item-1000000">
-            <a href="https://bimber.bringthepixel.com/gagster/top/">Top <strong>10</strong></a></li>
+            <a href="{{route('top10')}}">Top <strong>10</strong></a></li>
 
             <li id="menu-item-1870" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-g1-standard menu-item-1870">
-            <a href="/technology">Technology</a></li>
+                <a href="{{route('technology')}}">Technology</a></li>
 
-            <li id="menu-item-1871" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-g1-standard menu-item-1871">
-            <a href="/science">Science</a></li>
+                <li id="menu-item-1871" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-g1-standard menu-item-1871">
+                <a href="{{route('science')}}">Science</a></li>
 
-            <li id="menu-item-1872" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-g1-standard menu-item-1872">
-            <a href="/programming">Programming</a></li>
+                <li id="menu-item-1872" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-g1-standard menu-item-1872">
+                <a href="{{route('programming')}}">Programming</a></li>
 
-            <li id="menu-item-1873" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-g1-standard menu-item-1873">
-            <a href="/music">Music</a></li>
+                <li id="menu-item-1873" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-g1-standard menu-item-1873">
+                <a href="{{route('music')}}">Music</a></li>
 
-            <li id="menu-item-1874" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-g1-standard menu-item-1874">
-            <a href="/gaming">Gaming</a></li>
+                <li id="menu-item-1874" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-g1-standard menu-item-1874">
+                <a href="{{route('gaming')}}">Gaming</a></li>
 
-            <li id="menu-item-1875" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-g1-standard menu-item-1875">
-            <a href="/aww">Aww</a></li>
+                <li id="menu-item-1875" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-g1-standard menu-item-1875">
+                <a href="{{route('aww')}}">Aww</a></li>
 
-            <li id="menu-item-1876" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-g1-standard menu-item-1876">
-            <a href="/books">Books</a></li>
+                <li id="menu-item-1876" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-g1-standard menu-item-1876">
+                <a href="{{route('books')}}">Books</a></li>
 
-            <li id="menu-item-1877" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-g1-standard menu-item-1877">
-            <a href="/gifs">GIFs</a></li>
+                <li id="menu-item-1877" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-g1-standard menu-item-1877">
+                <a href="{{route('gif')}}">GIFs</a></li>
+                
+                <li id="menu-item-1878" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-g1-standard menu-item-1878">
+                <a href="{{route('sports')}}">Sports</a></li>
 
-            <li id="menu-item-1878" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-g1-standard menu-item-1878">
-            <a href="/sports">Sports</a></li>
-
-            <li id="menu-item-1879" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-g1-standard menu-item-1879">
-            <a href="/tv">TV</a></li>
+                <li id="menu-item-1879" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-g1-standard menu-item-1879">
+                <a href="{{route('tv')}}">TV</a></li>
 
             </ul>
        </nav>
@@ -892,10 +895,14 @@
                
                 <div class="g1-searches g1-searches-ajax"></div></div></div>
             </div>
+
+
+
+
             
-        <nav class="g1-drop g1-drop-before g1-drop-the-user  g1-drop-m g1-drop-icon "> 
+        {{-- <nav class="g1-drop g1-drop-before g1-drop-the-user  g1-drop-m g1-drop-icon "> 
             <a class="g1-drop-toggle snax-login-required" href="#"> 
-            <span class="login icon"></span><span class="g1-drop-toggle-text">{{-- Login  --}}</span> 
+            <span class="login icon"></span><span class="g1-drop-toggle-text"></span> 
             <span class="g1-drop-toggle-arrow"></span> </a>
         </nav>
 
@@ -921,8 +928,61 @@
                 <a href="#" 
                    class="bimber-snax-dropdown-view-all g1-link g1-link-s "> View all formats </a>
                 </div>
-        </div>
+        </div> --}}
+
+        @guest
+            <nav class="g1-drop g1-drop-before g1-drop-the-user  g1-drop-m g1-drop-icon "> 
+                <a class="g1-drop-toggle snax-login-required" > 
+                <a href="{{ route('login')}}"><span class="login icon"></span></a>
+                <span class="g1-drop-toggle-text">{{-- Login  --}}</span> 
+                <span class="g1-drop-toggle-arrow"></span> </a>
+            </nav>
+
+                    {{-- <div class="g1-drop g1-drop-before g1-drop-create"> 
+                        <a class="g1-button g1-button-solid snax-button snax-button-create snax-button-create-dropdown g1-drop-toggle g1-button-m"
+                        href="#">Create 
+                        <span class="g1-drop-toggle-arrow"></span> </a>
+
+                        <div class="g1-drop-content snax"> 
+
+                            <a href="#" class="meme icon"> 
+                            <span class="snax-format-icon"></span> 
+                            <span class="g1-epsilon g1-epsilon-1st">Meme</span> </a>
+                            
+                            <a href="#" class="image icon"> 
+                            <span class="snax-format-icon"></span>
+                            <span class="g1-epsilon g1-epsilon-1st">Image</span> </a>
+
+                            <a href="#" class="story icon"> 
+                            <span class="snax-format-icon"></span> 
+                            <span class="g1-epsilon g1-epsilon-1st">Story</span> </a>
+
+                            <a href="#" 
+                            class="bimber-snax-dropdown-view-all g1-link g1-link-s "> View all formats </a>
+                            </div>
+                    </div> --}}
+        @else
+            <div class="dropdown">
+
+                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdown">
+                    <div class="dropdown-item" >
+                    <a href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">{{ Auth::user()->name }}<br>
+                        {{ __('Logout') }}
+                    </a>
+                    </div>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                 @csrf
+                </form>
+                </div>
+            </div>
+        @endguest
     
+
+
+
+        
     </div></div></div></div>
     
        <div class="g1-row-background"></div></div></div>
@@ -1237,30 +1297,12 @@
    })();</script> <script type='text/javascript'>var mashsb = {"shares":"122","round_shares":"1","animate_shares":"0","dynamic_buttons":"0","share_url":"https:\/\/bimber.bringthepixel.com\/gagster\/we-make-it-easy\/","title":"We+make+it+easy","image":"https:\/\/bimber.bringthepixel.com\/gagster\/wp-content\/uploads\/sites\/3\/2015\/12\/funny_02_v01.jpg","desc":" Sed felis augue, dictum nec consectetur quis, elementum eu arcu. Nunc ornare arcu lacus, quis aliquet odio bibendum non. Nam vitae libero mauris. Suspendisse vitae purus ligula. Morbi sed diam eget dolor posuere convallis vel vel nisl. Nulla sagittis efficitur ex, at sodales massa pulvinar a. Nunc quis lacinia eros. Fusce ac ipsum gravida, tristique. <a class=\"g1-link g1-link-more\" href=\"https:\/\/bimber.bringthepixel.com\/gagster\/we-make-it-easy\/\">More<\/a>","hashtag":"","subscribe":"link","subscribe_url":"mailto:we@bringthepixel.com","activestatus":"1","singular":"0","twitter_popup":"1","refresh":"0","nonce":"0eb9d977bd","postid":"","servertime":"1556896242","ajaxurl":"https:\/\/bimber.bringthepixel.com\/gagster\/wp-admin\/admin-ajax.php"};</script> <script type='text/javascript'>var macegallery = "{\"i18n\":{\"of\":\"of\"},\"html\":\"\\n<div class=\\\"g1-gallery-wrapper g1-gallery-dark\\\">\\n\\t<div class=\\\"g1-gallery\\\">\\n\\t\\t<div class=\\\"g1-gallery-header\\\">\\n\\t\\t\\t<div class=\\\"g1-gallery-header-left\\\">\\n\\t\\t\\t\\t<div class=\\\"g1-gallery-logo\\\">\\n\\t\\t\\t\\t\\t\\t\\t\\t<\\\/div>\\n\\t\\t\\t\\t<div class=\\\"g1-gallery-title g1-gamma g1-gamma-1st\\\">{title}<\\\/div>\\n\\t\\t\\t<\\\/div>\\n\\t\\t\\t<div class=\\\"g1-gallery-header-right\\\">\\n\\t\\t\\t\\t<div class=\\\"g1-gallery-back-to-slideshow\\\">Back to slideshow<\\\/div>\\n\\t\\t\\t\\t<div class=\\\"g1-gallery-thumbs-button\\\"><\\\/div>\\n\\t\\t\\t\\t<div class=\\\"g1-gallery-numerator\\\">{numerator}<\\\/div>\\n\\t\\t\\t\\t<div class=\\\"g1-gallery-close-button\\\"><\\\/div>\\n\\t\\t\\t<\\\/div>\\n\\t\\t<\\\/div>\\n\\t\\t<div class=\\\"g1-gallery-body\\\">\\n\\t\\t\\t<div class=\\\"g1-gallery-frames\\\">\\n\\t\\t\\t\\t{frames}\\n\\t\\t\\t<\\\/div>\\n\\t\\t\\t<div class=\\\"g1-gallery-thumbnails32\\\">\\n\\t\\t\\t\\t<div class=\\\"g1-gallery-thumbnails-collection\\\">\\n\\t\\t\\t\\t\\t{thumbnails32}\\n\\t\\t\\t\\t<\\\/div>\\n\\t\\t\\t<\\\/div>\\n\\t\\t\\t<div class=\\\"g1-gallery-sidebar\\\">\\n\\t\\t\\t\\t\\t<div class=\\\"g1-gallery-shares\\\">\\n\\t\\t\\t\\t\\t<\\\/div>\\n\\t\\t\\t\\t\\t<div class=\\\"g1-gallery-ad\\\"><\\\/div>\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<div class=\\\"g1-gallery-thumbnails\\\">\\n\\t\\t\\t\\t\\t\\t\\t<div class=\\\"g1-gallery-thumbnails-up\\\"><\\\/div>\\n\\t\\t\\t\\t\\t\\t\\t<div class=\\\"g1-gallery-thumbnails-collection\\\">{thumbnails}<\\\/div>\\n\\t\\t\\t\\t\\t\\t\\t<div class=\\\"g1-gallery-thumbnails-down\\\"><\\\/div>\\n\\t\\t\\t\\t\\t\\t<\\\/div>\\n\\t\\t\\t\\t\\t\\t\\t\\t<\\\/div>\\n\\t\\t<\\\/div>\\n\\t<\\\/div>\\n<\\\/div>\\n\",\"shares\":\"<script type=\\\"text\\\/javascript\\\">\\n\\t\\t\\t(function () {\\n\\t\\t\\t\\tvar triggerOnLoad = false;\\n\\n\\t\\t\\t\\twindow.apiShareOnFB = function() {\\n\\t\\t\\t\\t\\tjQuery('body').trigger('snaxFbNotLoaded');\\n\\t\\t\\t\\t\\ttriggerOnLoad = true;\\n\\t\\t\\t\\t};\\n\\n\\t\\t\\t\\tvar _fbAsyncInitGallery = window.fbAsyncInitGallery;\\n\\n\\t\\t\\t\\twindow.fbAsyncInitGallery = function() {\\n\\t\\t\\t\\t\\tFB.init({\\n\\t\\t\\t\\t\\t\\tappId      : '930942467089889',\\n\\t\\t\\t\\t\\t\\txfbml      : true,\\n\\t\\t\\t\\t\\t\\tversion    : 'v3.0'\\n\\t\\t\\t\\t\\t});\\n\\t\\t\\t\\t\\twindow.apiShareOnFB_mace_replace_unique = function() {\\n\\t\\t\\t\\t\\t\\tvar shareTitle \\t\\t    = 'mace_replace_noesc_title';\\n\\t\\t\\t\\t\\t\\tvar shareDescription\\t= '';\\n\\t\\t\\t\\t\\t\\tvar shareImage\\t        = 'mace_replace_noesc_image_url';\\n\\n\\t\\t\\t\\t\\t\\tFB.login(function(response) {\\n\\t\\t\\t\\t\\t\\t\\tif (response.status === 'connected') {\\n\\t\\t\\t\\t\\t\\t\\t\\tvar objectToShare = {\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t'og:url':           'mace_replace_noesc_shortlink', \\\/\\\/ Url to share.\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t'og:title':         shareTitle,\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t'og:description':   shareDescription\\n\\t\\t\\t\\t\\t\\t\\t\\t};\\n\\n\\t\\t\\t\\t\\t\\t\\t\\t\\\/\\\/ Add image only if set. FB fails otherwise.\\n\\t\\t\\t\\t\\t\\t\\t\\tif (shareImage) {\\n\\t\\t\\t\\t\\t\\t\\t\\t\\tobjectToShare['og:image'] = shareImage;\\n\\t\\t\\t\\t\\t\\t\\t\\t}\\n\\n\\t\\t\\t\\t\\t\\t\\t\\tFB.ui({\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\tmethod: 'share_open_graph',\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\taction_type: 'og.shares',\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\taction_properties: JSON.stringify({\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\tobject : objectToShare\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t})\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t},\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\\/\\\/ callback\\n\\t\\t\\t\\t\\t\\t\\t\\t\\tfunction(response) {\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t});\\n\\t\\t\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t\\t\\t});\\n\\t\\t\\t\\t\\t};\\n\\n\\t\\t\\t\\t\\t\\\/\\\/ Fire original callback.\\n\\t\\t\\t\\t\\tif (typeof _fbAsyncInitGallery === 'function') {\\n\\t\\t\\t\\t\\t\\t_fbAsyncInitGallery();\\n\\t\\t\\t\\t\\t}\\n\\n\\t\\t\\t\\t\\t\\\/\\\/ Open share popup as soon as possible, after loading FB SDK.`\\n\\t\\t\\t\\t\\tif (triggerOnLoad) {\\n\\t\\t\\t\\t\\t\\tsetTimeout(function() {\\n\\t\\t\\t\\t\\t\\t\\tapiShareOnFB();\\n\\t\\t\\t\\t\\t\\t}, 1000);\\n\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t};\\n\\n\\t\\t\\t\\t\\\/\\\/ JS SDK loaded before we hook into it. Trigger callback now.\\n\\t\\t\\t\\tif (typeof window.FB !== 'undefined') {\\n\\t\\t\\t\\t\\twindow.fbAsyncInitGallery();\\n\\t\\t\\t\\t}\\n\\t\\t\\t\\tjQuery('body').on('maceGalleryItemChanged', function(){\\n\\t\\t\\t\\t\\twindow.fbAsyncInitGallery();\\n\\t\\t\\t\\t});\\n\\t\\t\\t})();\\n\\t\\t<\\\/script>\\n\\n<a class=\\\"g1-gallery-share g1-gallery-share-fb\\\" href=\\\"#\\\" title=\\\"Share on Facebook\\\" onclick=\\\"apiShareOnFB_mace_replace_unique(); return false;\\\" target=\\\"_blank\\\" rel=\\\"nofollow\\\">Share on Facebook<\\\/a><a class=\\\"g1-gallery-share g1-gallery-share-twitter\\\" href=\\\"https:\\\/\\\/twitter.com\\\/home?status=mace_replace_title%20mace_replace_shortlink\\\" title=\\\"Share on Twitter\\\" target=\\\"_blank\\\" rel=\\\"nofollow\\\">Share on Twitter<\\\/a><a class=\\\"g1-gallery-share g1-gallery-share-pinterest\\\" href=\\\"https:\\\/\\\/pinterest.com\\\/pin\\\/create\\\/button\\\/?url=mace_replace_shortlink&amp;description=mace_replace_title&amp;media=mace_replace_image_url\\\" title=\\\"Share on Pinterest\\\" target=\\\"_blank\\\" rel=\\\"nofollow\\\">Share on Pinterest<\\\/a>\"}";</script> <script type='text/javascript'>var snax_collections_js_config = "{\"ajax_url\":\"https:\\\/\\\/bimber.bringthepixel.com\\\/gagster\\\/wp-admin\\\/admin-ajax.php\",\"home_url\":\"https:\\\/\\\/bimber.bringthepixel.com\\\/gagster\",\"user_id\":0,\"post_id\":0,\"nonce\":\"3498dec9c9\",\"history\":\"off\",\"i18n\":{\"are_you_sure_remove\":\"Entire collection with all items will be removed. Proceed?\",\"are_you_sure_clear_all\":\"All collection items will be removed. Proceed?\",\"removed\":\"Collection has been successfully removed\",\"removing_items\":\"Removing collection items...\"}}";</script> <script type='text/javascript'>var snax_plupload_i18n = {"queue_limit_exceeded":"You have attempted to queue too many files.","file_exceeds_size_limit":"%s exceeds the maximum upload size for this site.","zero_byte_file":"This file is empty. Please try another.","invalid_filetype":"This file type is not allowed. Please try another.","not_an_image":"This file is not an image. Please try another.","image_memory_exceeded":"Memory exceeded. Please try another smaller file.","image_dimensions_exceeded":"This is larger than the maximum size. Please try another.","default_error":"An error occurred in the upload. Please try again later.","missing_upload_url":"There was a configuration error. Please contact the server administrator.","upload_limit_exceeded":"You may only upload 1 file.","http_error":"HTTP error.","big_upload_failed":"Please try uploading this file with the %1$sbrowser uploader%2$s.","big_upload_queued":"%s exceeds the maximum upload size for the multi-file uploader when used in your browser.","io_error":"IO error.","security_error":"Security error.","file_cancelled":"File canceled.","upload_stopped":"Upload stopped.","dismiss":"Dismiss","crunching":"Crunching\u2026","deleted":"moved to the trash.","error_uploading":"\u201c%s\u201d has failed to upload.","are_you_sure":"Are you sure?","multi_drop_forbidden":"You can drop only one file here.","upload_failed":"Upload failed. Check if the file is a valid image.","invalid_url":"Upload failed. Provided URL is not valid."};</script> <script type='text/javascript'>var snax_front_config = "{\"ajax_url\":\"https:\\\/\\\/bimber.bringthepixel.com\\\/gagster\\\/wp-admin\\\/admin-ajax.php\",\"site_url\":\"https:\\\/\\\/bimber.bringthepixel.com\\\/gagster\",\"autosave_interval\":60,\"use_login_recaptcha\":true,\"recaptcha_api_url\":\"https:\\\/\\\/www.google.com\\\/recaptcha\\\/api.js\",\"recaptcha_version\":\"20\",\"recaptcha_site_key\":\"6LffZ9ESAAAAAO_lW9_7oQplKBqMU8J1-pU4pk-b\",\"enable_login_popup\":true,\"login_url\":\"https:\\\/\\\/bimber.bringthepixel.com\\\/gagster\\\/?snax_login_popup\",\"login_popup_url_var\":\"snax_login_popup\",\"logged_in\":false,\"login_success_var\":\"snax_login_success\",\"i18n\":{\"are_you_sure\":\"Are you sure?\",\"recaptcha_invalid\":\"<strong>ERROR<\\\/strong>: The reCAPTCHA you entered is incorrect.\",\"passwords_dont_match\":\"Passwords don't match.\",\"link_invalid\":\"Your password reset link appears to be invalid or expired.\",\"password_set\":\"New password has been set\",\"duplicate_comment\":\"Duplicate comment detected; it looks as though you&#8217;ve already said that!\",\"comment_fail\":\"Comment Submission Failure\",\"see_all_replies\":\"See all replies\",\"user_is_logging\":\"Please wait. You are logging in&hellip;\",\"points_singular_tpl\":\"<strong>%d<\\\/strong> point\",\"points_plural_tpl\":\"<strong>%d<\\\/strong> points\"}}";</script> <script type='text/javascript'>var uiAutocompleteL10n = {"noResults":"No results found.","oneResult":"1 result found. Use up and down arrow keys to navigate.","manyResults":"%d results found. Use up and down arrow keys to navigate.","itemSelected":"Item selected."};</script> <script type='text/javascript'>var bimber_front_config = "{\"ajax_url\":\"https:\\\/\\\/bimber.bringthepixel.com\\\/gagster\\\/wp-admin\\\/admin-ajax.php\",\"timeago\":\"on\",\"sharebar\":\"on\",\"microshare\":\"on\",\"i18n\":{\"menu\":{\"go_to\":\"Go to\"},\"newsletter\":{\"subscribe_mail_subject_tpl\":\"Check out this great article: %subject%\"},\"bp_profile_nav\":{\"more_link\":\"More\"}},\"comment_types\":[\"wp\",\"fb\",\"dsq\"],\"auto_load_limit\":\"0\",\"auto_play_videos\":\"1\",\"use_gif_player\":true,\"setTargetBlank\":true,\"useWaypoints\":true,\"stack\":\"cards\"}";
    var bimber_front_microshare = "[]";</script> 
    <script type='text/javascript'>var mc4wp_forms_config = [];</script> <!--[if lte IE 9]> 
-   <script type='text/javascript' src='https://bimber.bringthepixel.com/gagster/wp-content/plugins/mailchimp-for-wp/assets/js/third-party/placeholders.min.js?ver=4.3.3'></script> <![endif]--><div class="g1-popup g1-popup-newsletter"><div class="g1-popup-overlay"></div><div class="g1-popup-inner"><div id="bimber-mc4wp-form-counter-2" class="g1-newsletter g1-newsletter-vertical "><div class="g1-newsletter-cover"><div class="g1-newsletter-cover-background" style="background-image:url(https://bimber.bringthepixel.com/gagster/wp-content/uploads/sites/3/2018/07/newsletter-popup-visual.jpg);"></div></div><div class="g1-newsletter-content"><h3 class="g1-mega g1-mega-1st">Hey Friend!<br>Before You Go…</h3><p>Get the best viral stories straight into your inbox before everyone else!</p><div class="g1-newsletter-form-wrap"> <script>(function() {
-       if (!window.mc4wp) {
-           window.mc4wp = {
-               listeners: [],
-               forms    : {
-                   on: function (event, callback) {
-                       window.mc4wp.listeners.push({
-                           event   : event,
-                           callback: callback
-                       });
-                   }
-               }
-           }
-       }
-   })();</script>
+   <script type='text/javascript' src='https://bimber.bringthepixel.com/gagster/wp-content/plugins/mailchimp-for-wp/assets/js/third-party/placeholders.min.js?ver=4.3.3'>
+   </script> <![endif]--><div class="g1-popup g1-popup-newsletter"><div class="g1-popup-overlay"></div><div class="g1-popup-inner">
+   <div id="bimber-mc4wp-form-counter-2" class="g1-newsletter g1-newsletter-vertical "><div class="g1-newsletter-cover">
+   <div class="g1-newsletter-cover-background" style="background-image:url(https://bimber.bringthepixel.com/gagster/wp-content/uploads/sites/3/2018/07/newsletter-popup-visual.jpg);"></div></div>
    
-   <form id="mc4wp-form-3" class="mc4wp-form mc4wp-form-313" method="post" data-id="313" data-name="Default sign-up form" >
-   <div class="mc4wp-form-fields"><p> <label>Email address: </label> <input type="email" name="EMAIL" placeholder="Your email address" required /></p><p> 
-   <input type="submit" value="Subscribe" /></p></div>
-   <label style="display: none !important;">Leave this field empty if you're human: <input type="text" name="_mc4wp_honeypot" value="" tabindex="-1" autocomplete="off" /></label>
-   <input type="hidden" name="_mc4wp_timestamp" value="1556896243" /><input type="hidden" name="_mc4wp_form_id" value="313" />
-   <input type="hidden" name="_mc4wp_form_element_id" value="mc4wp-form-3" /><div class="mc4wp-response"></div>
-   <p class="g1-meta g1-newsletter-privacy">Don't worry, we don't spam</p></form>
-   </div></div></div> 
+   </div> 
    <a href="#" class="g1-popup-closer">Close</a></div></div>
 
 

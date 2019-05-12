@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title','| TV')
+@section('title','| Top 10')
 
 @section('posts')
 
