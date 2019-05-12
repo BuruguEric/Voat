@@ -26,6 +26,10 @@ Route::get('/technology', 'PagesController@technology')->name('technology');
 
 Auth::routes();
 
+Auth::routes(['verify' => true]);
+
+Route::resource('Comments' , 'CommentController');
+
 Route::get('/index', 'PagesController@index')->name('index');
 
 Route::get('/comment', 'PagesController@comment')->name('comment');

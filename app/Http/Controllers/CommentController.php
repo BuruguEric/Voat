@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Image;
 
 class CommentController extends Controller
 {
@@ -34,7 +37,30 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validate data
+        $this->validate($request, array(
+            'subject' => 'required | max:255',
+            'body' => 'required',
+            'uploads' => 'required | size:20000'
+        ));
+        // Store Data in DB
+        $comment = new Comment;
+        $comment->subject = $request->subject;
+        $comment->body = $request->body;
+        // File Upload
+        if ($request->hasFile('uploads')) {
+            $upload = $request->file('uploads');
+            $uploadname = time() . '.' .$upload->getClientOriginalExtension();
+            $location = public_path('uploads/' . $uploadname);
+            image::make($upload)->resize(800,400)->save($location);
+
+            $comment->uploads = $uploadname;
+        }
+
+        $comment->save();
+
+        return redirect()->route('Comments.show', $comment->id);
+
     }
 
     /**
