@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\User;
 use Socialite;
 use Auth;
+use Session;
 
 class LoginController extends Controller
 {
@@ -39,6 +40,7 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+        Session::flash('success_login','Successfull Login \nWelcome Back');
     }
 
     public function redirect($provider)
@@ -53,16 +55,17 @@ class LoginController extends Controller
 
         if($users){
             Auth::login($users);
-            return redirect('/');
+            Session::flash('success_login','Successfull Login \nWelcome Back');
+            return redirect()->route('index');
         }else{
 
         $user = User::create([
-                'name'          => $userSocial->getName(),
-                'email'         => $userSocial->getEmail(),
-                'image'         => $userSocial->getAvatar(),
-                'provider_id'   => $userSocial->getId(),
-                'provider'      => $provider,
-            ]);
+            'name'          => $userSocial->getName(),
+            'email'         => $userSocial->getEmail(),
+            'image'         => $userSocial->getAvatar(),
+            'provider_id'   => $userSocial->getId(),
+            'provider'      => $provider,
+        ]);
 
          return redirect()->route('index');
         }

@@ -6,6 +6,7 @@ use App\Comment;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Image;
+use Session;
 
 class CommentController extends Controller
 {
@@ -58,7 +59,7 @@ class CommentController extends Controller
         }
 
         $comment->save();
-
+        Session::flash('success_comment','Successful Post Upload');
         return redirect()->route('Comments.show', $comment->id);
 
     }
@@ -71,7 +72,7 @@ class CommentController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('pages.index');
     }
 
     /**
