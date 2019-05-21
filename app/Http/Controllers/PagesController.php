@@ -45,4 +45,9 @@ class PagesController extends Controller
     public function comment(){
         return view('pages.postForm');
     }
+    public function create(){
+        return view('pages.create');
+    }
 }
+
+?>

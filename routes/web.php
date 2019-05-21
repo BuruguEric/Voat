@@ -24,6 +24,7 @@ Route::group(['middleware' => ['web']], function (){
     Route::get('/science', 'PagesController@science')->name('science');
     Route::get('/programming', 'PagesController@programming')->name('programming');
     Route::get('/technology', 'PagesController@technology')->name('technology');
+    Route::get('/create' , 'PagesContoller@create')->name('create');
 
     Auth::routes();
 
