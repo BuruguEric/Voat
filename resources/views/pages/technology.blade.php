@@ -5,22 +5,18 @@
 @section('posts')
 
 <li class="g1-collection-item">
-    <article id="post-271" class="entry-tpl-stream post-271 post type-post status-publish format-standard has-post-thumbnail category-bimber-funny tag-bimber-dogs tag-bimber-dont-miss tag-bimber-food tag-bimber-home snax_format-text" itemscope=""
-itemtype="http://schema.org/Article">
+    <article id="post-271" class="entry-tpl-stream post-271 post type-post status-publish format-standard has-post-thumbnail category-bimber-funny tag-bimber-dogs tag-bimber-dont-miss tag-bimber-food tag-bimber-home snax_format-text" itemscope="" itemtype="http://schema.org/Article">
     <header class="entry-header">
-    <div class="entry-before-title"></div>
-    <h2 class="g1-alpha g1-alpha-1st entry-title" itemprop="headline">
-    <a href="https://bimber.bringthepixel.com/gagster/we-make-it-easy/" rel="bookmark">The nerve of some people</a></h2>
-    <div class="entry-after-title"></div>
+        <div class="entry-before-title"></div>
+        <h2 class="g1-alpha g1-alpha-1st entry-title" itemprop="headline">
+        {{-- <h3>{{ $comment->subject }}</h3> --}}
+        </h2>
+        <div class="entry-after-title"></div>
     </header>
     
     <figure class="entry-featured-media "  itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
         <div class="g1-frame-inner" style="padding-bottom: 100.00000000%;">
-        {{-- <img width="608" height="608" src="" 
-        class="attachment-bimber-stream size-bimber-stream lazyload wp-post-image" alt="" itemprop="contentUrl" 
-        data-src="../images/post1.jpg" data-expand="600" 
-        data-sizes="(max-width: 608px) 100vw, 608px" /> --}}
-        <img src="images/post1.jpg" alt="">
+        {{-- <img src="{{asset('uploads/' .$comment->uploads)}}" alt=""> --}}
         <span class="g1-frame-icon g1-frame-icon-"></span>
         </div>
         </a>
@@ -29,18 +25,22 @@ itemtype="http://schema.org/Article">
         <meta itemprop="width" content="1152" /><meta itemprop="height" content="1152" />
     </figure>
     
-        <div class="entry-body">
-            <p class="g1-meta entry-meta entry-byline entry-byline-with-avatar"> 
+    <div class="entry-body">
+        <p class="g1-meta entry-meta entry-byline entry-byline-with-avatar"> 
             <span class="entry-author" itemscope="" itemprop="author" 
-            itemtype="http://schema.org/Person"> <span class="entry-meta-label">by</span> 
-            <a href="https://bimber.bringthepixel.com/gagster/buddypress/members/charles_gagster/profile/home/" title="Posts by Charles Wellington" 
-            rel="author"> 
-            <img alt='' src='https://bimber-ssl.bringthepixel.com/gagster/wp-content/uploads/sites/3/2016/11/author_02_v01-30x30.jpg' 
-            srcset='https://bimber-ssl.bringthepixel.com/gagster/wp-content/uploads/sites/3/2016/11/author_02_v01-60x60.jpg 2x' 
-            class='avatar avatar-30 photo' height='30' width='30' /> 
-            <strong itemprop="name">Maggie Mull</strong> </a> </span> 
+            itemtype="http://schema.org/Person"> 
+                <span class="entry-meta-label">by</span> 
+                <a href="https://bimber.bringthepixel.com/gagster/buddypress/members/charles_gagster/profile/home/" title="Posts by Charles Wellington" 
+                rel="author"> 
+                    <img alt='' src='https://bimber-ssl.bringthepixel.com/gagster/wp-content/uploads/sites/3/2016/11/author_02_v01-30x30.jpg' 
+                    srcset='https://bimber-ssl.bringthepixel.com/gagster/wp-content/uploads/sites/3/2016/11/author_02_v01-60x60.jpg 2x' 
+                    class='avatar avatar-30 photo' height='30' width='30' /> 
+                    <strong itemprop="name">Maggie Mull</strong> 
+                </a> 
+            </span> 
             <time class="entry-date" datetime="2019-05-03T15:10:43" itemprop="datePublished">May 3, 2019, 3:10 pm</time>
-        </p></div>
+        </p>
+    </div>
             <div class="entry-todome g1-dropable snax"><div class="snax-voting snax-voting-positive snax-voting-s" data-snax-item-id="271">
                 <div class="snax-voting-score"> <strong>675</strong> points</div> <a href="#" class="snax-voting-upvote snax-guest-voting" 
                 title="Upvote" data-snax-item-id="271" data-snax-author-id="0" data-snax-nonce="05973a0f70">Upvote</a> <a href="#" 
@@ -60,8 +60,8 @@ itemtype="http://schema.org/Article">
                     target="_blank" rel="nofollow"><span class="icon"></span><span class="text">Pinterest</span></a>
                     <div class="onoffswitch2 mash-large mashsb-noshadow" style="display:none;"></div></div></div></div>
                     <div style="clear:both;"></div></aside></div>
-                </article>
-            </li>
+    </article>
+</li>
 
                 <!-- <li class="g1-collection-item"><aside id="bimber-mc4wp-form-counter-1" 
                     class="g1-box g1-box-tpl-frame g1-newsletter g1-newsletter-horizontal "><div class="g1-box-icon"></div>

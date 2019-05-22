@@ -43,7 +43,7 @@ class PagesController extends Controller
         return view('pages.tv');
     }
     public function comment(){
-        return view('pages.postForm');
+        return view('pages.create');
     }
     public function create(){
         return view('pages.create');

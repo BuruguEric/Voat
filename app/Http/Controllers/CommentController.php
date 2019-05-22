@@ -17,7 +17,8 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        $comments = Comment::all();
+        return view('pages.technology')->with('posts',$comments);
     }
 
     /**
@@ -42,7 +43,7 @@ class CommentController extends Controller
         $this->validate($request, array(
             'subject' => 'required | max:255',
             'body' => 'required',
-            'uploads' => 'required | size:20000'
+            'uploads' => 'required '
         ));
         // Store Data in DB
         $comment = new Comment;
@@ -53,14 +54,14 @@ class CommentController extends Controller
             $upload = $request->file('uploads');
             $uploadname = time() . '.' .$upload->getClientOriginalExtension();
             $location = public_path('uploads/' . $uploadname);
-            image::make($upload)->resize(800,400)->save($location);
+            image::make($upload)->resize(550,450)->save($location);
 
             $comment->uploads = $uploadname;
         }
 
         $comment->save();
         Session::flash('success_comment','Successful Post Upload');
-        return redirect()->route('Comments.show', $comment->id);
+        return redirect()->route('posts.show',$comment->id);
 
     }
 
@@ -72,7 +73,8 @@ class CommentController extends Controller
      */
     public function show($id)
     {
-        return view('pages.index');
+        $comment = Comment::find($id);
+        return view('pages.show')->with('comment',$comment);
     }
 
     /**

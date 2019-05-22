@@ -24,7 +24,7 @@ Route::group(['middleware' => ['web']], function (){
     Route::get('/science', 'PagesController@science')->name('science');
     Route::get('/programming', 'PagesController@programming')->name('programming');
     Route::get('/technology', 'PagesController@technology')->name('technology');
-    Route::get('/create' , 'PagesContoller@create')->name('create');
+    Route::get('/create' , 'PagesController@create')->name('create');
 
     Auth::routes();
 
@@ -33,6 +33,8 @@ Route::group(['middleware' => ['web']], function (){
     Route::get('/index', 'PagesController@index')->name('index');
 
     Route::get('/comment', 'PagesController@comment')->name('comment');
+
+    Route::resource('posts' , 'CommentController');
 
     Route::get('login/{provider}', 'Auth\LoginController@redirect')->where('provider','twitter|facebook|linkedin|google|github');
     Route::get('login/{provider}/callback','Auth\LoginController@Callback')->where('provider','twitter|facebook|linkedin|google|github');
