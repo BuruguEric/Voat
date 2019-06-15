@@ -14,6 +14,7 @@
     <title>Document</title>
 </head>
 <body style="background-color:ghostwhite">
+    @include('partials._messages')
     <div id="myModal">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -21,7 +22,7 @@
                 <h2 style="text-align:center;">{{ $comment->subject }}</h2>
                 </div><hr>
                 <div class="modal-body">
-                    <img src="{{ asset('uploads/' . $comment->uploads) }}"></image>
+                    <img width="570px" height="300px" src="{{ asset('uploads/' . $comment->uploads) }}"></image>
                     <h3>{{ $comment->body }}</h3>
                 </div><hr>
             <a href="{{route('create')}}"><button class="btn btn-primary btn-block">Make Another Post</button></a>

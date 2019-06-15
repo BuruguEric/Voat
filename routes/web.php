@@ -31,13 +31,27 @@ Route::group(['middleware' => ['web']], function (){
     Auth::routes(['verify' => true]);
 
     Route::get('/index', 'PagesController@index')->name('index');
+    Route::match(['get','post'] , '/Admin', 'AdminController@login')->name('admin-dashboard');
+    Route::post('/logout' , 'AdminController@logout')->name('admin.logout');
 
     Route::get('/comment', 'PagesController@comment')->name('comment');
 
     Route::resource('posts' , 'CommentController');
+
+    Route::resource('Comments' , 'PostController');
+
+    Route::post('/users/logout' , 'Auth\LoginController@userLogout')->name('user.logout');
+    Route::get('Comments/{id}/delete' , 'CommentController@delete')->name('Comments.delete');
+    Route::delete('Comments/{id}/delete' , 'CommentController@destroy')->name('Comment.destroy');
+
+    // Route::prefix('admin')->group(function(){
+    //     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login.Form');
+    //     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login');
+    // });
 
     Route::get('login/{provider}', 'Auth\LoginController@redirect')->where('provider','twitter|facebook|linkedin|google|github');
     Route::get('login/{provider}/callback','Auth\LoginController@Callback')->where('provider','twitter|facebook|linkedin|google|github');
 });
 
 ?>
+

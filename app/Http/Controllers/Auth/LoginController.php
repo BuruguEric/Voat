@@ -39,8 +39,14 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest', ['except' => ['logout' , 'userLogout']]);
         Session::flash('success_login','Successfull Login \nWelcome Back');
+    }
+
+    public function userLogout()
+    {
+        Auth::logout();
+        return redirect('/');
     }
 
     public function redirect($provider)

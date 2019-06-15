@@ -17,8 +17,7 @@ class CommentController extends Controller
      */
     public function index()
     {
-        $comments = Comment::all();
-        return view('pages.technology')->with('posts',$comments);
+        return redirect()->route('index');
     }
 
     /**
@@ -41,14 +40,17 @@ class CommentController extends Controller
     {
         // Validate data
         $this->validate($request, array(
+            'category' => 'required',
             'subject' => 'required | max:255',
             'body' => 'required',
-            'uploads' => 'required '
+            'uploads' => 'required | mimes:jpg,png,jpeg,jpe,gif,bmp,ico,svg,svgz,tif,ai,raw,drw,pct,psp,xcf,psd,'
         ));
         // Store Data in DB
         $comment = new Comment;
         $comment->subject = $request->subject;
         $comment->body = $request->body;
+        $comment->category = $request->category;
+        $comment->user_id = $request->user_id;
         // File Upload
         if ($request->hasFile('uploads')) {
             $upload = $request->file('uploads');
@@ -76,29 +78,20 @@ class CommentController extends Controller
         $comment = Comment::find($id);
         return view('pages.show')->with('comment',$comment);
     }
-
+    
     /**
-     * Show the form for editing the specified resource.
+     * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function delete($id)
     {
-        //
+        $comments = Comment::find($id);
+        return view('pages.delete', compact('comments'));
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.
@@ -108,6 +101,11 @@ class CommentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $comment = Comment::find($id);
+        $comment->delete();
+
+        Session::flash('delete_comment', 'Comment Deleted Successfully');
+
+        return redirect()->route('index');
     }
 }
