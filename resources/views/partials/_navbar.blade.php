@@ -46,81 +46,84 @@
 
                     </ul>
                 </nav>
-
+                <div class="g1-bin-3 g1-bin-grow-off">
+                        <div class="g1-bin g1-bin-align-right">
+                            <div class="g1-drop g1-drop-nojs g1-drop-before g1-drop-the-skin g1-drop-the-skin-light g1-drop-m g1-drop-icon"> 
+                                <button class="g1-button-none g1-drop-toggle"> 
+                                <span class="moon icon"></span>
+                                <span class="g1-drop-toggle-text"></span> 
+                                <span class="g1-drop-toggle-arrow"></span> 
+                                </button>
+                            </div>
+            
+                        @guest
+                            <div class="g1-drop g1-drop-before g1-drop-the-search  g1-drop-m g1-drop-icon "> 
+                                <a class="g1-drop-toggle" href="#"> 
+                                {{-- <span class="g1-drop-toggle-icon"></span> --}}
+                                <span class="search icon">{{--Search--}}</span> 
+                                <span class="g1-drop-toggle-arrow"></span> </a>
+                                <div class="g1-drop-content"><div role="search" class="search-form-wrapper">
+                                <form method="get" class="g1-searchform-tpl-default g1-searchform-ajax search-form" action="#"> 
+                                    <label> <span class="screen-reader-text">Search for:</span> 
+                                    <input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s" title="Search for:" /> </label> 
+                                    {{-- <button class="search-submit ">Search</button> --}}
+                                </form>
+                            
+                                <div class="g1-searches g1-searches-ajax"></div></div></div>
+                            </div>
+                            <nav class="g1-drop g1-drop-before g1-drop-the-user  g1-drop-m g1-drop-icon "> 
+                                <a class="g1-drop-toggle snax-login-required" > 
+                                <a href="{{ route('login')}}"><span class="login icon"></span></a>
+                                <span class="g1-drop-toggle-text">{{-- Login  --}}</span> 
+                                <span class="g1-drop-toggle-arrow"></span> </a>
+                            </nav>
+                        @endguest
+            
+                        @auth
+                            
+                        @if (Auth::user()->role == 0)
+                        <div class="dropdown dropleft">
+                            <div aria-labelledby="navbarDropdown">
+                                <span class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="fas fa-user-cog"></i></span>
+                                <div style="min-width: 118px; max-width: 50px;" class="dropdown-menu" >
+                                    <a class="dropdown-header"><b>{{ Auth::user()->name }}</b></a>
+                                    <a class="dropdown-header" href="{{ route('userProfile') }}">Account details</a>
+                                    <a style="margin-top:-5px !important;" class="dropdown-header" href="{{ route('userPosts') }}">My Posts</a></span>
+                                    <a class="dropdown-header" href="{{ route('user.logout') }}" onclick="event.preventDefault(); 
+                                        document.getElementById('user-logout-form').submit();"><i class="fas fa-power-off"></i>
+                                        {{ __('Logout') }}
+                                    </a>                                                                        
+                                </div>
+                                <form id="user-logout-form" action="{{ route('user.logout') }}" method="POST" style="display: none;">
+                                @csrf
+                                </form>
+                            </div>
+                        </div>
+            
+                        @elseif(Auth::user()->role == 1)
+                        <div class="dropdown">
+                            <div aria-labelledby="navbarDropdown">
+                                <span class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span></span>
+                                <div class="dropdown-menu" style="min-width: 118px; max-width: 118px;">
+                                    <a class="dropdown-header"><b>{{ Auth::user()->name }}</b></a>
+                                    <a class="dropdown-header" href="{{ route('userProfile') }}">Account details</a>
+                                    <a style="margin-top:-5px !important;" class="dropdown-header" href="{{ route('userPosts') }}">My Posts</a></span>
+                                    <a class="dropdown-header" href="{{ route('admin.logout') }}" onclick="event.preventDefault(); 
+                                        document.getElementById('user-logout-form').submit();"><i class="fas fa-power-off"></i>
+                                        {{ __('Logout') }}
+                                    </a>
+                                </div>
+                                <form class="dropdown-item" id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+                                @csrf
+                                </form>
+                            </div>
+                        </div>
+                        @endif
+                        @endauth
+                        </div>
+                    </div>
             </div>
         </div>
     
-        <div class="g1-bin-3 g1-bin-grow-off">
-            <div class="g1-bin g1-bin-align-right">
-                <div class="g1-drop g1-drop-nojs g1-drop-before g1-drop-the-skin g1-drop-the-skin-light g1-drop-m g1-drop-icon"> 
-                    <button class="g1-button-none g1-drop-toggle"> 
-                    <span class="moon icon"></span>
-                    <span class="g1-drop-toggle-text"></span> 
-                    <span class="g1-drop-toggle-arrow"></span> 
-                    </button>
-                </div>
-
-            @guest
-                <div class="g1-drop g1-drop-before g1-drop-the-search  g1-drop-m g1-drop-icon "> 
-                    <a class="g1-drop-toggle" href="#"> 
-                    {{-- <span class="g1-drop-toggle-icon"></span> --}}
-                    <span class="search icon">{{--Search--}}</span> 
-                    <span class="g1-drop-toggle-arrow"></span> </a>
-                    <div class="g1-drop-content"><div role="search" class="search-form-wrapper">
-                    <form method="get" class="g1-searchform-tpl-default g1-searchform-ajax search-form" action="#"> 
-                        <label> <span class="screen-reader-text">Search for:</span> 
-                        <input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s" title="Search for:" /> </label> 
-                        {{-- <button class="search-submit ">Search</button> --}}
-                    </form>
-                
-                    <div class="g1-searches g1-searches-ajax"></div></div></div>
-                </div>
-                <nav class="g1-drop g1-drop-before g1-drop-the-user  g1-drop-m g1-drop-icon "> 
-                    <a class="g1-drop-toggle snax-login-required" > 
-                    <a href="{{ route('login')}}"><span class="login icon"></span></a>
-                    <span class="g1-drop-toggle-text">{{-- Login  --}}</span> 
-                    <span class="g1-drop-toggle-arrow"></span> </a>
-                </nav>
-            @endguest
-
-            @auth
-                
-            @if (Auth::user()->role == 0)
-            <div class="dropdown">
-                <div aria-labelledby="navbarDropdown">
-                    <span class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span></span>
-                    <div style="width: 50px !important; min-width: 50px; max-width: 50px;" class="dropdown-menu" >
-                        <a class="dropdown-item" href="{{ route('user.logout') }}" onclick="event.preventDefault(); 
-                            document.getElementById('user-logout-form').submit();">
-                            {{ Auth::user()->name }}<br> {{ __('Logout') }}
-                        </a>
-                        
-                    </div>
-                    <form class="dropdown-item" id="user-logout-form" action="{{ route('user.logout') }}" method="POST" style="display: none;">
-                    @csrf
-                    </form>
-                </div>
-            </div>
-
-            @elseif(Auth::user()->role == 1)
-            <div class="dropdown">
-                <div aria-labelledby="navbarDropdown">
-                    <span class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span></span>
-                    <div style="width: 50px !important; min-width: 50px; max-width: 50px;" class="dropdown-menu" >
-                        <a class="dropdown-item" href="{{ route('admin.logout') }}" onclick="event.preventDefault(); 
-                            document.getElementById('logout-form').submit();">
-                            {{ Auth::user()->name }}<br> {{ __('Logout') }}
-                        </a>
-                        
-                    </div>
-                    <form class="dropdown-item" id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
-                    @csrf
-                    </form>
-                </div>
-            </div>
-            @endif
-            @endauth
-            </div>
-        </div>
     </div>
 </div>

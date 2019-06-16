@@ -11,7 +11,7 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <title>Document</title>
+    <title>Voat | Post</title>
 </head>
 <body style="background-color:ghostwhite">
     @include('partials._messages')

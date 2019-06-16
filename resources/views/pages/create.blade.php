@@ -121,13 +121,13 @@
                                         <input type="text" class="form-control" name="subject" />
                                     </div>
 
-                                    @if (Auth::guard('admin')->check())
+                                    @if (Auth::user()->role == 0)
                                     <div class="form-group">
-                                        <input type="hidden" class="form-control" name="user_id" value="{{ Auth::guard('admin')->user()->id }}" />
+                                        <input type="hidden" class="form-control" name="user_id" value="{{ Auth::user()->id }}" />
                                     </div>
-                                    @elseif (Auth::guard('web')->check())
+                                    @elseif (Auth::user()->role == 1)
                                     <div class="form-group">
-                                        <input type="hidden" class="form-control" name="user_id" value="{{ Auth::guard('web')->user()->id }}" />
+                                        <input type="hidden" class="form-control" name="user_id" value="{{ Auth::user()->id }}" />
                                     </div>
                                     @endif
                                     

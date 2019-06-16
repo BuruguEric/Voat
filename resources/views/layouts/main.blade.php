@@ -18,10 +18,10 @@
             <div class="g1-row-background"></div></div></div>
             
             <div class="g1-row g1-row-layout-page g1-hb-row g1-hb-row-normal g1-hb-row-c g1-hb-row-3 g1-hb-full g1-hb-sticky-off g1-hb-shadow-off">
-                    <div class="g1-row-inner"><div class="g1-column g1-dropable"><div class="g1-bin-1 g1-bin-grow-off">
-                    <div class="g1-bin g1-bin-align-left"></div></div><div class="g1-bin-2 g1-bin-grow-off">
-                    <div class="g1-bin g1-bin-align-center"></div></div><div class="g1-bin-3 g1-bin-grow-off">
-                    <div class="g1-bin g1-bin-align-right"></div></div></div></div><div class="g1-row-background"></div>
+                <div class="g1-row-inner"><div class="g1-column g1-dropable"><div class="g1-bin-1 g1-bin-grow-off">
+                <div class="g1-bin g1-bin-align-left"></div></div><div class="g1-bin-2 g1-bin-grow-off">
+                <div class="g1-bin g1-bin-align-center"></div></div><div class="g1-bin-3 g1-bin-grow-off">
+                <div class="g1-bin g1-bin-align-right"></div></div></div></div><div class="g1-row-background"></div>
             </div>
             
             <div class="g1-sticky-top-wrapper g1-hb-row-1">
@@ -83,7 +83,10 @@
                     
                     <div class="snax-cta"><div class="snax-cta-body">
                     <p class="g1-alpha g1-alpha-1st">Got something awesome to share with others?</p>
-                    <a href="{{ route('create') }}"><button class="btn btn-primary btn-block">Create</button></a>
+                    @if (Auth::user())
+                        <a href="{{ route('create') }}"><button class="btn btn-primary btn-block">Create</button></a>
+                    @endif
+                    <a href="{{ route('login') }}"><button class="btn btn-primary btn-block">Create</button></a>
                     </div></div>
                     </div>
                     <div class="g1-box-background g1-current-background"></div>
@@ -133,7 +136,7 @@
                     </div><div class="g1-row-background"></div>
             </div> 
             <!-- END OF FOOTER -->
-                
+            
             <a href="#page" class="g1-back-to-top">{{-- Back to Top  --}}</a>
         </div>
 
