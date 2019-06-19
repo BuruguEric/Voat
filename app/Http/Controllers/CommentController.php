@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Image;
 use Session;
+use Auth;
 
 class CommentController extends Controller
 {
@@ -50,7 +51,7 @@ class CommentController extends Controller
         $comment->subject = $request->subject;
         $comment->body = $request->body;
         $comment->category = $request->category;
-        $comment->user_id = $request->user_id;
+        $comment->user_id = Auth::user()->id;
         // File Upload
         if ($request->hasFile('uploads')) {
             $upload = $request->file('uploads');

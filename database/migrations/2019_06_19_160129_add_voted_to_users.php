@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddUploadsToComments extends Migration
+class AddVotedToUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddUploadsToComments extends Migration
      */
     public function up()
     {
-        Schema::table('comments', function (Blueprint $table) {
-            //
+        Schema::table('users', function (Blueprint $table) {
+            $table->Integer('voted')->default(0)->after('email');
         });
     }
 
@@ -25,7 +25,7 @@ class AddUploadsToComments extends Migration
      */
     public function down()
     {
-        Schema::table('comments', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             //
         });
     }

@@ -42,37 +42,70 @@
                         rel="author">
                             <img alt='' src='https://bimber-ssl.bringthepixel.com/gagster/wp-content/uploads/sites/3/2016/11/author_02_v01-30x30.jpg' 
                             srcset='https://bimber-ssl.bringthepixel.com/gagster/wp-content/uploads/sites/3/2016/11/author_02_v01-60x60.jpg 2x' 
-                            class='avatar avatar-30 photo' height='30' width='30' /> 
-                            <strong itemprop="name">Maggie Mull</strong> 
+                            class='avatar avatar-30 photo' height='30' width='30' />
+                            @auth
+                            <strong itemprop="name">{{Auth::user()->name}}</strong>
+                            @endauth 
                         </a> 
                     </span> 
                     <time class="entry-date" datetime="2019-05-03T15:10:43" itemprop="datePublished">May 3, 2019, 3:10 pm</time>
                 </p>
             </div>
-            <div class="entry-todome g1-dropable snax"><div class="snax-voting snax-voting-positive snax-voting-s" data-snax-item-id="271">
-                <div class="snax-voting-score"> <strong>675</strong> points</div> 
-                <a href="#" class="snax-voting-upvote snax-guest-voting" title="Upvote" data-snax-item-id="271" data-snax-author-id="0" data-snax-nonce="05973a0f70">Upvote</a> 
-                <a href="#" class="snax-voting-downvote snax-guest-voting" title="Downvote" data-snax-item-id="271" data-snax-author-id="0" 
-                data-snax-nonce="05973a0f70">Downvote</a></div><aside class="mashsb-container mashsb-compact mashsb-stretched">
-                <div class="mashsb-box">
-                    <div class="mashsb-buttons"><a  class="mashicon-facebook mash-large mash-center mashsb-noshadow" 
-                    href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fbimber.bringthepixel.com%2Fgagster%2Fwe-make-it-easy%2F" target="_blank" 
-                    rel="nofollow">
-                        <span class="icon"></span><span class="text">Facebook</span></a><a  
-                        class="mashicon-twitter mash-large mash-center mashsb-noshadow" 
-                        href="https://twitter.com/intent/tweet?text=We make it easy&url=https://bimber.bringthepixel.com/gagster/?p=271" target="_blank" 
-                        rel="nofollow"><span class="icon"></span><span class="text">Twitter</span></a><div class="onoffswitch mash-large mashsb-noshadow">
-                        </div>
-                        <div class="secondary-shares" style="display:none;"><a  class="mashicon-subscribe mash-large mash-center mashsb-noshadow" 
-                        href="#" target="_blank" rel="nofollow"><span class="icon"></span><span class="text">Subscribe</span></a>
-                        <a  class="mashicon-pinterest mash-large mash-center mashsb-noshadow" href="#" 
-                        data-mashsb-url="https://www.pinterest.com/pin/create/button/?url=https%3A%2F%2Fbimber.bringthepixel.com%2Fgagster%2Fwe-make-it-easy%2F&media=https://bimber.bringthepixel.com/gagster/wp-content/uploads/sites/3/2015/12/funny_02_v01-300x300.jpg&description=We make it easy" 
-                        target="_blank" rel="nofollow"><span class="icon"></span><span class="text">Pinterest</span></a>
-                        <div class="onoffswitch2 mash-large mashsb-noshadow" style="display:none;"></div>
+            <style>
+                .btn-space {
+                    margin-right: 15px;
+                }
+            </style>
+            <script>
+                $('#vote_form').submit(function(){
+                    $('#btnUp').addClass('disabled');
+                })
+            </script>
+            <div class="entry-todome g1-dropable snax">
+                <div class="snax-voting snax-voting-positive snax-voting-s" data-snax-item-id="271">
+                    <div class="snax-voting-score"> <strong>675</strong> points</div>
+                    <form action="{{ route('like') }}" id="vote_form" method="POST">
+                        @csrf
+                        @auth
+                        <input type="hidden" name="post_id" value="{{ $comment->id }}">
+                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                        @endauth
+                        <button id="btnUp" type="submit" class="btn btn-primary btn-xs btn-space">
+                            <i class="fas fa-thumbs-up"></i>
+                        </button>
+                    </form>
+                    <form action="{{ route('dislike') }}" method="POST">
+                        @csrf
+                        @auth
+                        <input type="hidden" name="post_id" value="{{ $comment->id }}">
+                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                        @endauth
+                        <button id="btnDown" type="submit" class="btn btn-primary btn-xs btn-space">
+                            <i class="fas fa-thumbs-down"></i>
+                        </button>
+                    </form>
+                </div>
+                <aside class="mashsb-container mashsb-compact mashsb-stretched">
+                    <div class="mashsb-box">
+                        <div class="mashsb-buttons"><a  class="mashicon-facebook mash-large mash-center mashsb-noshadow" 
+                        href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fbimber.bringthepixel.com%2Fgagster%2Fwe-make-it-easy%2F" target="_blank" 
+                        rel="nofollow">
+                            <span class="icon"></span><span class="text">Facebook</span></a><a  
+                            class="mashicon-twitter mash-large mash-center mashsb-noshadow" 
+                            href="https://twitter.com/intent/tweet?text=We make it easy&url=https://bimber.bringthepixel.com/gagster/?p=271" target="_blank" 
+                            rel="nofollow"><span class="icon"></span><span class="text">Twitter</span></a><div class="onoffswitch mash-large mashsb-noshadow">
+                            </div>
+                            <div class="secondary-shares" style="display:none;"><a  class="mashicon-subscribe mash-large mash-center mashsb-noshadow" 
+                            href="#" target="_blank" rel="nofollow"><span class="icon"></span><span class="text">Subscribe</span></a>
+                            <a  class="mashicon-pinterest mash-large mash-center mashsb-noshadow" href="#" 
+                            data-mashsb-url="https://www.pinterest.com/pin/create/button/?url=https%3A%2F%2Fbimber.bringthepixel.com%2Fgagster%2Fwe-make-it-easy%2F&media=https://bimber.bringthepixel.com/gagster/wp-content/uploads/sites/3/2015/12/funny_02_v01-300x300.jpg&description=We make it easy" 
+                            target="_blank" rel="nofollow"><span class="icon"></span><span class="text">Pinterest</span></a>
+                            <div class="onoffswitch2 mash-large mashsb-noshadow" style="display:none;"></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div style="clear:both;"></div></aside>
+                    <div style="clear:both;"></div>
+                </aside>
             </div>
             @auth
                 

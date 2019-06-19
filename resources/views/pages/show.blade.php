@@ -25,7 +25,7 @@
                     <img width="570px" height="300px" src="{{ asset('uploads/' . $comment->uploads) }}"></image>
                     <h3>{{ $comment->body }}</h3>
                 </div><hr>
-            <a href="{{route('create')}}"><button class="btn btn-primary btn-block">Make Another Post</button></a>
+            <a href="{{route('index')}}"><button class="btn btn-primary btn-block">Make Another Post</button></a>
             <a href="{{route('index')}}"><button class="btn btn-success btn-block">Go back Home</button></a><hr>
             </div>
         </div>

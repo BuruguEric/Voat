@@ -25,7 +25,6 @@ class PagesController extends Controller
     }
     public function gif(){
         $posts = Post::where('category','GIFs')->get();
-        $posts = Post::where('category','GIFs')->get();
         $comments = Comment::where("category","GIFs")->get();
         return view('pages.gif',compact('comments','posts'));
     }

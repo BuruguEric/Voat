@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddCategoryToComments extends Migration
+class AddEmailToUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddCategoryToComments extends Migration
      */
     public function up()
     {
-        Schema::table('comments', function (Blueprint $table) {
-            //
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('email')->nullable()->unique()->after('name');
         });
     }
 
@@ -25,7 +25,7 @@ class AddCategoryToComments extends Migration
      */
     public function down()
     {
-        Schema::table('comments', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             //
         });
     }

@@ -17,10 +17,10 @@ class CreatePostsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->mediumText('post');
+            $table->mediumText('post'); 
             $table->boolean('approved')->default(false);
-            $table->bigInteger('comment_id')->unsigned();
-            $table->foreign('comment_id')->references('id')->on('comments')->onDelete('cascade');
+            $table->bigInteger('comment_Id')->unsigned();
+            $table->foreign('comment_Id')->references('id')->on('comments')->onDelete('cascade');
             $table->string('category');
             $table->timestamps();
         });
