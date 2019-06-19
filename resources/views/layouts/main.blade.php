@@ -85,8 +85,9 @@
                     <p class="g1-alpha g1-alpha-1st">Got something awesome to share with others?</p>
                     @if (Auth::user())
                         <a href="{{ route('create') }}"><button class="btn btn-primary btn-block">Create</button></a>
+                    @else
+                        <a href="{{ route('login') }}"><button class="btn btn-primary btn-block">Create</button></a>
                     @endif
-                    <a href="{{ route('login') }}"><button class="btn btn-primary btn-block">Create</button></a>
                     </div></div>
                     </div>
                     <div class="g1-box-background g1-current-background"></div>
