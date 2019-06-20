@@ -260,9 +260,9 @@
             <div class="modal fade" id="myModal">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button> 
+                        <div class="modal-header"> 
                         <h1>Share Your Thoughts</h1>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
                         </div>
                         <div class="modal-body">
                             <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
@@ -300,13 +300,13 @@
                                     </div>
                                     <div class="custom-file">
                                         <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                                        <input type="file" name="uploads" accept="image/*" class="btn-primary" id="inputGroupFile01"
+                                        <input type="file" name="uploads" accept="image/*" id="inputGroupFile01"
                                         aria-describedby="inputGroupFileAddon01"><br>
                                     </div>
-                                </div>
+                                </div><br>
                                 
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-success">Create</button>
+                                    <button type="submit" class="btn btn-primary">Create</button>
                                     <button class="btn btn-primary">Cancel</button>
                                 </div>
                                 

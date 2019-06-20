@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8"/>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-
-    <!-- jQuery library -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    
 
     <link href="https://fonts.googleapis.com/css?family=Hammersmith+One|Nunito" rel="stylesheet"> 
     <link rel="profile" href="http://gmpg.org/xfn/11"/>
@@ -26,6 +24,24 @@
     <link rel="alternate" type="application/rss+xml" title="Bimber Gagster Demo &raquo; Feed" href="https://bimber.bringthepixel.com/gagster/feed/" />
     <link rel="alternate" type="application/rss+xml" title="Bimber Gagster Demo &raquo; Comments Feed" href="https://bimber.bringthepixel.com/gagster/comments/feed/" />
     <style type="text/css">
+
+    .carousel {
+    width:50%;
+    height:50%;
+    margin: auto;
+    width: 50%;
+    border: 3px solid blue;
+    padding: 10px;
+    }
+    .profile{
+        width:50%; 
+        margin: auto; 
+        font-family: 'Open Sans'; 
+        font-size:20px;
+        color:#000;
+        text-decoration: none !important;
+    }
+
     *{
         text-decoration: none !important;
     }

@@ -82,9 +82,9 @@
                         @auth
                             
                         @if (Auth::user()->role == 0)
-                        <div class="dropdown dropleft">
+                        <div>
                             <div aria-labelledby="navbarDropdown">
-                                <span class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="fas fa-user-cog"></i></span>
+                                <span class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i style="color:ghostwhite" class="fas fa-user-cog"></i></span>
                                 <div style="min-width: 118px; max-width: 50px;" class="dropdown-menu" >
                                     <a class="dropdown-header"><b>{{ Auth::user()->name }}</b></a>
                                     <a class="dropdown-header" href="{{ route('userProfile') }}">Account details</a>

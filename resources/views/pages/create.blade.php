@@ -143,7 +143,7 @@
                                         </div>
                                         <div class="custom-file">
                                             <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                                            <input type="file" name="uploads" accept="image/*" class="btn-primary" id="inputGroupFile01"
+                                            <input type="file" name="uploads" accept="image/*" id="inputGroupFile01"
                                             aria-describedby="inputGroupFileAddon01"><br>
                                         </div>
                                     </div>
