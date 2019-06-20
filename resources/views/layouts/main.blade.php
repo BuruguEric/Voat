@@ -94,7 +94,9 @@
                 </aside>
 
                 <aside id="adace_ads_widget-2" class="widget widget_adace_ads_widget"><div class="adace-slot-wrapper adace-widget-1938 " >
-                    <div class="adace-disclaimer"></div><div class="adace-slot"><div class="adace_ad_5ccc59f324fde adace-dont-remove"> <img src="https://bimber.bringthepixel.com/gagster/wp-content/uploads/sites/3/2018/06/neon_type1_v02.jpg"
+                    <div class="adace-disclaimer"></div><div class="adace-slot">
+                        <div class="adace_ad_5ccc59f324fde adace-dont-remove"> 
+                        <img src="https://bimber.bringthepixel.com/gagster/wp-content/uploads/sites/3/2018/06/neon_type1_v02.jpg"
             srcset = "https://bimber.bringthepixel.com/gagster/wp-content/uploads/sites/3/2018/06/neon_type1_v02@2x.jpg 2x, https://bimber.bringthepixel.com/gagster/wp-content/uploads/sites/3/2018/06/neon_type1_v02.jpg 1x"
             width="300" height="250" alt="" /></div></div></div>
                 </aside>

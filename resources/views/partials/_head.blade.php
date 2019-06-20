@@ -26,8 +26,12 @@
     <link rel="alternate" type="application/rss+xml" title="Bimber Gagster Demo &raquo; Feed" href="https://bimber.bringthepixel.com/gagster/feed/" />
     <link rel="alternate" type="application/rss+xml" title="Bimber Gagster Demo &raquo; Comments Feed" href="https://bimber.bringthepixel.com/gagster/comments/feed/" />
     <style type="text/css">
+    *{
+        text-decoration: none !important;
+    }
     html{
         margin-top: 0% !important;
+        
     }
     .g1-sticky-top-wrapper {
         top: 0px;
