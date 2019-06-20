@@ -16,6 +16,8 @@
             @include('partials._navbar')
 
             <div class="g1-row-background"></div></div></div>
+
+            @include('partials._messages')
             
             <div class="g1-row g1-row-layout-page g1-hb-row g1-hb-row-normal g1-hb-row-c g1-hb-row-3 g1-hb-full g1-hb-sticky-off g1-hb-shadow-off">
                 <div class="g1-row-inner"><div class="g1-column g1-dropable"><div class="g1-bin-1 g1-bin-grow-off">
@@ -78,13 +80,15 @@
                     </div>
 
             <div id="secondary" class="g1-column g1-column-1of3">
-                <aside id="snax_widget_cta-6" class="widget snax snax-widget-cta g1-box g1-box-tpl-frame"><i class="g1-box-icon"></i>
+                <aside id="snax_widget_cta-6" class="widget snax snax-widget-cta g1-box g1-box-tpl-frame">
+                    {{-- <i class="g1-box-icon"></i> --}}
                     <div class="g1-box-inner">
                     
                     <div class="snax-cta"><div class="snax-cta-body">
-                    <p class="g1-alpha g1-alpha-1st">Got something awesome to share with others?</p>
+                    <p style="margin-top:-15px"class="g1-alpha g1-alpha-1st">Got something awesome to share with others?</p>
                     @if (Auth::user())
-                        <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#myModal">Create</button>
+                        <button style="background-color:chartreuse !important; font-family: 'Karla'; font-size:16px; background: linear-gradient(to right, #4b6cb7, #302b63, #24243e); " class="btn btn-primary btn-block" 
+                        data-toggle="modal" data-target="#myModal"><b>Create</b></button>
                     @else
                         <a href="{{ route('login') }}"><button class="btn btn-primary btn-block">Create</button></a>
                     @endif
@@ -96,7 +100,7 @@
                 <aside id="adace_ads_widget-2" class="widget widget_adace_ads_widget"><div class="adace-slot-wrapper adace-widget-1938 " >
                     <div class="adace-disclaimer"></div><div class="adace-slot">
                         <div class="adace_ad_5ccc59f324fde adace-dont-remove"> 
-                        <img src="images/kochokocho.jpg"
+                        <img src="images/coke.jpg"
             width="300" height="250" alt="" /></div></div></div>
                 </aside>
 
@@ -108,17 +112,7 @@
                 <!-- END OF mostviewed SIDEBAR -->
 
 
-                {{-- START OF AD NO. 2 --}}
-            <div class="g1-sticky-widget-wrapper">
-                <div class="g1-sticky-widget" style="top: 10px">
-                    <aside id="adace_ads_widget-3" class="widget widget_adace_ads_widget">
-                    <div class="adace-slot-wrapper adace-widget-1939 " ><div class="adace-disclaimer"></div><div class="adace-slot">
-                    <div class="adace_ad_5ccc59f32e921 adace-dont-remove"> 
-                    <img src="" srcset = "images/post1.jpg" width="300" height="250" alt="" /></div></div></div>
-                    </aside>
-                </div>
-            </div>
-                {{-- END OF AD NO. 2 --}}
+               
 
             </div>
 
@@ -260,8 +254,8 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button> 
                         <h1>Share Your Thoughts</h1>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button> 
                         </div>
                         <div class="modal-body">
                             <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
@@ -298,14 +292,13 @@
                                         <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
                                     </div>
                                     <div class="custom-file">
-                                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                                        <input type="file" name="uploads" accept="image/*" class="btn-primary" id="inputGroupFile01"
+                                        <input type="file" name="uploads" accept="image/*" id="inputGroupFile01"
                                         aria-describedby="inputGroupFileAddon01"><br>
                                     </div>
-                                </div>
+                                </div><br>
                                 
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-success">Create</button>
+                                    <button type="submit" class="btn btn-primary">Create</button>
                                     <button class="btn btn-primary">Cancel</button>
                                 </div>
                                 

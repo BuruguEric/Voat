@@ -39,13 +39,14 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest', ['except' => ['logout' , 'userLogout']]);
-        Session::flash('success_login','Successfull Login \nWelcome Back');
+        $this->middleware('guest', ['except' => ['logout' , 'userLogout']]); 
+        
     }
 
     public function userLogout()
     {
         Auth::logout();
+        Session::flash('success_logout','You have successfully logged out Come back soon');
         return redirect('/');
     }
 
@@ -61,7 +62,7 @@ class LoginController extends Controller
 
         if($users){
             Auth::login($users);
-            Session::flash('success_login','Successfull Login \nWelcome Back');
+            Session::flash('success_login','Successfull login. Welcome Back');
             return redirect()->route('index');
         }else{
 
@@ -72,7 +73,7 @@ class LoginController extends Controller
             'provider_id'   => $userSocial->getId(),
             'provider'      => $provider,
         ]);
-
+        Session::flash('success_register','Successfull register. Welcome to the Voat community');
          return redirect()->route('index');
         }
     }

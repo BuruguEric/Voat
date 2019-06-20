@@ -76,16 +76,16 @@
                                 <a href="{{ route('login')}}"><span class="login icon"></span></a>
                                 <span class="g1-drop-toggle-text">{{-- Login  --}}</span> 
                                 <span class="g1-drop-toggle-arrow"></span> </a>
-                            </nav>
+                            </nav> 
                         @endguest
             
                         @auth
                             
-                        @if (Auth::user()->role == 0)
-                        <div class="dropdown dropleft">
+                       
+                        <div class="dropdown">
                             <div aria-labelledby="navbarDropdown">
-                                <span class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="fas fa-user-cog"></i></span>
-                                <div style="min-width: 118px; max-width: 50px;" class="dropdown-menu" >
+                                <span class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i style="color:ghostwhite;" class="fas fa-user-cog"></i></span>
+                                <div style="min-width: 130px; max-width: 50px;" class="dropdown-menu" >
                                     <a class="dropdown-header"><b>{{ Auth::user()->name }}</b></a>
                                     <a class="dropdown-header" href="{{ route('userProfile') }}">Account details</a>
                                     <a style="margin-top:-5px !important;" class="dropdown-header" href="{{ route('userPosts') }}">My Posts</a></span>
@@ -100,25 +100,6 @@
                             </div>
                         </div>
             
-                        @elseif(Auth::user()->role == 1)
-                        <div class="dropdown">
-                            <div aria-labelledby="navbarDropdown">
-                                <span class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span></span>
-                                <div class="dropdown-menu" style="min-width: 118px; max-width: 118px;">
-                                    <a class="dropdown-header"><b>{{ Auth::user()->name }}</b></a>
-                                    <a class="dropdown-header" href="{{ route('userProfile') }}">Account details</a>
-                                    <a style="margin-top:-5px !important;" class="dropdown-header" href="{{ route('userPosts') }}">My Posts</a></span>
-                                    <a class="dropdown-header" href="{{ route('admin.logout') }}" onclick="event.preventDefault(); 
-                                        document.getElementById('user-logout-form').submit();"><i class="fas fa-power-off"></i>
-                                        {{ __('Logout') }}
-                                    </a>
-                                </div>
-                                <form class="dropdown-item" id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
-                                @csrf
-                                </form>
-                            </div>
-                        </div>
-                        @endif
                         @endauth
                         </div>
                     </div>

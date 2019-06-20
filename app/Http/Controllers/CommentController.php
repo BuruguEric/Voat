@@ -63,7 +63,7 @@ class CommentController extends Controller
         }
 
         $comment->save();
-        Session::flash('success_comment','Successful Post Upload');
+        Session::flash('success_post','Post Added Successful');
         return redirect()->route('posts.show',$comment->id);
 
     }
@@ -105,7 +105,7 @@ class CommentController extends Controller
         $comment = Comment::find($id);
         $comment->delete();
 
-        Session::flash('delete_comment', 'Comment Deleted Successfully');
+        Session::flash('delete_post', 'Post Deleted Successfully');
 
         return redirect()->route('index');
     }

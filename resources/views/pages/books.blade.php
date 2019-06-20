@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title','| Books')
+@section('title','| Home')
 
 @section('posts')
 
@@ -42,39 +42,73 @@
                         rel="author">
                             <img alt='' src='https://bimber-ssl.bringthepixel.com/gagster/wp-content/uploads/sites/3/2016/11/author_02_v01-30x30.jpg' 
                             srcset='https://bimber-ssl.bringthepixel.com/gagster/wp-content/uploads/sites/3/2016/11/author_02_v01-60x60.jpg 2x' 
-                            class='avatar avatar-30 photo' height='30' width='30' /> 
-                            <strong itemprop="name">Maggie Mull</strong> 
+                            class='avatar avatar-30 photo' height='30' width='30' />
+                            @auth
+                            <strong itemprop="name">{{Auth::user()->name}}</strong>
+                            @endauth 
                         </a> 
                     </span> 
-                    <time class="entry-date" datetime="2019-05-03T15:10:43" itemprop="datePublished">May 3, 2019, 3:10 pm</time>
+                    <time class="entry-date" itemprop="datePublished">{{$comment->created_at}}</time>
                 </p>
             </div>
-            <div class="entry-todome g1-dropable snax"><div class="snax-voting snax-voting-positive snax-voting-s" data-snax-item-id="271">
-                <div class="snax-voting-score"> <strong>675</strong> points</div> 
-                <a href="#" class="snax-voting-upvote snax-guest-voting" title="Upvote" data-snax-item-id="271" data-snax-author-id="0" data-snax-nonce="05973a0f70">Upvote</a> 
-                <a href="#" class="snax-voting-downvote snax-guest-voting" title="Downvote" data-snax-item-id="271" data-snax-author-id="0" 
-                data-snax-nonce="05973a0f70">Downvote</a></div><aside class="mashsb-container mashsb-compact mashsb-stretched">
-                <div class="mashsb-box">
-                    <div class="mashsb-buttons"><a  class="mashicon-facebook mash-large mash-center mashsb-noshadow" 
-                    href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fbimber.bringthepixel.com%2Fgagster%2Fwe-make-it-easy%2F" target="_blank" 
-                    rel="nofollow">
-                        <span class="icon"></span><span class="text">Facebook</span></a><a  
-                        class="mashicon-twitter mash-large mash-center mashsb-noshadow" 
-                        href="https://twitter.com/intent/tweet?text=We make it easy&url=https://bimber.bringthepixel.com/gagster/?p=271" target="_blank" 
-                        rel="nofollow"><span class="icon"></span><span class="text">Twitter</span></a><div class="onoffswitch mash-large mashsb-noshadow">
-                        </div>
-                        <div class="secondary-shares" style="display:none;"><a  class="mashicon-subscribe mash-large mash-center mashsb-noshadow" 
-                        href="#" target="_blank" rel="nofollow"><span class="icon"></span><span class="text">Subscribe</span></a>
-                        <a  class="mashicon-pinterest mash-large mash-center mashsb-noshadow" href="#" 
-                        data-mashsb-url="https://www.pinterest.com/pin/create/button/?url=https%3A%2F%2Fbimber.bringthepixel.com%2Fgagster%2Fwe-make-it-easy%2F&media=https://bimber.bringthepixel.com/gagster/wp-content/uploads/sites/3/2015/12/funny_02_v01-300x300.jpg&description=We make it easy" 
-                        target="_blank" rel="nofollow"><span class="icon"></span><span class="text">Pinterest</span></a>
-                        <div class="onoffswitch2 mash-large mashsb-noshadow" style="display:none;"></div>
+            <style>
+                .btn-space {
+                    margin-right: 15px;
+                }
+            </style>
+            <script>
+                $('#vote_form').submit(function(){
+                    $('#btnUp').addClass('disabled');
+                })
+            </script>
+            <div class="entry-todome g1-dropable snax">
+                <div class="snax-voting snax-voting-positive snax-voting-s" data-snax-item-id="271">
+                    <div class="snax-voting-score"> </div>
+                    <form action="{{ route('like') }}" id="vote_form" method="POST">
+                        @csrf
+                        @auth
+                        <input type="hidden" name="post_id" value="{{ $comment->id }}">
+                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                        @endauth
+                        <button id="btnUp" type="submit" class="btn btn-primary btn-xs btn-space">
+                            <i class="fas fa-thumbs-up"></i>
+                        </button>
+                    </form>
+                    <form action="{{ route('dislike') }}" method="POST">
+                        @csrf
+                        @auth
+                        <input type="hidden" name="post_id" value="{{ $comment->id }}">
+                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                        @endauth
+                        <button id="btnDown" type="submit" class="btn btn-primary btn-xs btn-space">
+                            <i class="fas fa-thumbs-down"></i>
+                        </button>
+                    </form>
+                </div>
+                <aside class="mashsb-container mashsb-compact mashsb-stretched">
+                    <div class="mashsb-box">
+                        <div class="mashsb-buttons"><a  class="mashicon-facebook mash-large mash-center mashsb-noshadow" 
+                        href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fbimber.bringthepixel.com%2Fgagster%2Fwe-make-it-easy%2F" target="_blank" 
+                        rel="nofollow">
+                            <span class="icon"></span><span class="text">Facebook</span></a><a  
+                            class="mashicon-twitter mash-large mash-center mashsb-noshadow" 
+                            href="https://twitter.com/intent/tweet?text=We make it easy&url=https://bimber.bringthepixel.com/gagster/?p=271" target="_blank" 
+                            rel="nofollow"><span class="icon"></span><span class="text">Twitter</span></a><div class="onoffswitch mash-large mashsb-noshadow">
+                            </div>
+                            <div class="secondary-shares" style="display:none;"><a  class="mashicon-subscribe mash-large mash-center mashsb-noshadow" 
+                            href="#" target="_blank" rel="nofollow"><span class="icon"></span><span class="text">Subscribe</span></a>
+                            <a  class="mashicon-pinterest mash-large mash-center mashsb-noshadow" href="#" 
+                            data-mashsb-url="https://www.pinterest.com/pin/create/button/?url=https%3A%2F%2Fbimber.bringthepixel.com%2Fgagster%2Fwe-make-it-easy%2F&media=https://bimber.bringthepixel.com/gagster/wp-content/uploads/sites/3/2015/12/funny_02_v01-300x300.jpg&description=We make it easy" 
+                            target="_blank" rel="nofollow"><span class="icon"></span><span class="text">Pinterest</span></a>
+                            <div class="onoffswitch2 mash-large mashsb-noshadow" style="display:none;"></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div style="clear:both;"></div></aside>
+                    <div style="clear:both;"></div>
+                </aside>
             </div>
             @auth
+                
             @if (Auth::user()->role == 0)
             <div class="actionBox">
                 <form action="{{ route('Comments.store') }}" method="POST" class="pb5" class="form-inline" role="form">
@@ -158,7 +192,7 @@
                    <div class="g1-frame-inner" style="padding-bottom: 42.85714286%;">
                    <img width="364" height="156" src="https://bimber.bringthepixel.com/gagster/wp-content/plugins/media-ace/includes/lazy-load/images/blank.png" 
                    class="attachment-bimber-grid-fancy size-bimber-grid-fancy lazyload wp-post-image" alt="" 
-                   data-src="https://bimber.bringthepixel.com/gagster/wp-content/uploads/sites/3/2015/12/funny_07_v01-364x156.gif" data-expand="600" />
+                   data-src="images/gaming.jpg" data-expand="600" />
                    <span class="g1-frame-icon g1-frame-icon-"></span></div></a>
                </figure>
                    <div class="entry-counter"></div>
@@ -166,7 +200,7 @@
                        <header class="entry-header">
                        <div class="entry-before-title"></div>
                        <h3 class="g1-delta g1-delta-1st entry-title">
-                       <a href="https://bimber.bringthepixel.com/gagster/another-bimber-update/" rel="bookmark">Another Bimber update</a>
+                       <a href="images/gaming.jpg" rel="bookmark">FIFA 2020 will be FIRE!</a>
                        </h3>
                        </header>
                    </div>
@@ -176,12 +210,11 @@
        <li class="g1-collection-item">
            <article class="entry-tpl-grid-fancy post-208 post type-post status-publish format-standard has-post-thumbnail category-bimber-wow tag-bimber-hardcore tag-bimber-home tag-bimber-jump tag-bimber-parkour tag-bimber-sidebar">
                <figure class="entry-featured-media " >
-                   <a title="Hardcore parkour&#8230;" class="g1-frame" href="https://bimber.bringthepixel.com/gagster/hardcore-parkour/">
+                   <a title="Hardcore parkour&#8230;" class="g1-frame" href="images/AI.jpg">
                    <div class="g1-frame-inner" style="padding-bottom: 42.85714286%;">
-                   <img width="364" height="156" src="https://bimber.bringthepixel.com/gagster/wp-content/plugins/media-ace/includes/lazy-load/images/blank.png" 
+                   <img width="364" height="156" src="images/AI.jpg" 
                    class="attachment-bimber-grid-fancy size-bimber-grid-fancy lazyload wp-post-image" alt="" 
-                   data-src="https://bimber.bringthepixel.com/gagster/wp-content/uploads/sites/3/2015/11/wow_08_v01-364x156.jpg" data-expand="600" 
-                   data-srcset="https://bimber.bringthepixel.com/gagster/wp-content/uploads/sites/3/2015/11/wow_08_v01-364x156.jpg 364w, https://bimber.bringthepixel.com/gagster/wp-content/uploads/sites/3/2015/11/wow_08_v01-728x312.jpg 728w" 
+                   data-src="images/AI.jpg" data-expand="600" 
                    data-sizes="(max-width: 364px) 100vw, 364px" />
                    <span class="g1-frame-icon g1-frame-icon-"></span></div></a>
                </figure>
@@ -190,27 +223,26 @@
                        <header class="entry-header">
                            <div class="entry-before-title"></div>
                            <h3 class="g1-delta g1-delta-1st entry-title">
-                           <a href="https://bimber.bringthepixel.com/gagster/hardcore-parkour/" rel="bookmark">Hardcore parkour&#8230;</a></h3>
+                           <a href="images/AI.jpg" rel="bookmark">PHP is highly marketable</a></h3>
                        </header>
                    </div>
            </article>
        </li>
                            
-       <li class="g1-collection-item">
+       {{-- <li class="g1-collection-item">
            <article class="entry-tpl-grid-fancy post-202 post type-post status-publish format-standard has-post-thumbnail category-bimber-nfsw category-bimber-wow tag-bimber-dude tag-bimber-girl tag-bimber-muscle tag-bimber-selfie tag-bimber-sidebar">
                <figure class="entry-featured-media entry-media-nsfw " >
-                   <a title="Yo, check out my stuff" class="g1-frame" href="https://bimber.bringthepixel.com/gagster/yo-check-stuff/">
+                   <a title="Yo, check out my stuff" class="g1-frame" href="images/got.jpg">
                    <div class="g1-frame-inner" style="padding-bottom: 42.85714286%;">
-                   <img width="364" height="156" src="https://bimber.bringthepixel.com/gagster/wp-content/plugins/media-ace/includes/lazy-load/images/blank.png" 
+                   <img width="364" height="156" src="images/got.jpg" 
                    class="attachment-bimber-grid-fancy size-bimber-grid-fancy lazyload wp-post-image" alt="" 
-                   data-src="https://bimber.bringthepixel.com/gagster/wp-content/uploads/sites/3/2015/11/wow_05_v01-364x156.jpg" data-expand="600" 
-                   data-srcset="https://bimber.bringthepixel.com/gagster/wp-content/uploads/sites/3/2015/11/wow_05_v01-364x156.jpg 364w, https://bimber.bringthepixel.com/gagster/wp-content/uploads/sites/3/2015/11/wow_05_v01-728x312.jpg 728w" 
+                   data-src="images/got.jpg" data-expand="600" 
                    data-sizes="(max-width: 364px) 100vw, 364px" />
                    <span class="g1-frame-icon g1-frame-icon-"></span>
                    <div class="g1-nsfw">
                        <div class="g1-nsfw-inner"><i class="g1-nsfw-icon"></i>
-                       <div class="g1-nsfw-title">Not Safe For Work</div>
-                       <div class="g1-nsfw-desc">Click to view this post</div></div></div></div></a>
+                       <div class="g1-nsfw-title">Game of Thrones Season 8 was a fail</div>
+                      
                </figure>
                    <div class="entry-counter"></div>
                        <div class="entry-body">
@@ -220,17 +252,16 @@
                            </header>
                        </div>
            </article>
-       </li>
+       </li> --}}
    
        <li class="g1-collection-item">
            <article class="entry-tpl-grid-fancy post-194 post type-post status-publish format-standard has-post-thumbnail category-bimber-wow tag-bimber-balloons tag-bimber-sidebar">
                <figure class="entry-featured-media " >
-                   <a title="The Best Balloons of 2017" class="g1-frame" href="https://bimber.bringthepixel.com/gagster/best-balloons-2017/">
+                   <a title="The Best Balloons of 2017" class="g1-frame" href="images/got.jpg">
                    <div class="g1-frame-inner" style="padding-bottom: 42.85714286%;">
-                   <img width="364" height="156" src="https://bimber.bringthepixel.com/gagster/wp-content/plugins/media-ace/includes/lazy-load/images/blank.png" 
+                   <img width="364" height="156" src="images/got.jpg" 
                    class="attachment-bimber-grid-fancy size-bimber-grid-fancy lazyload wp-post-image" alt="" 
-                   data-src="https://bimber.bringthepixel.com/gagster/wp-content/uploads/sites/3/2015/11/wow_01_v01-364x156.jpg" data-expand="600" 
-                   data-srcset="https://bimber.bringthepixel.com/gagster/wp-content/uploads/sites/3/2015/11/wow_01_v01-364x156.jpg 364w, https://bimber.bringthepixel.com/gagster/wp-content/uploads/sites/3/2015/11/wow_01_v01-728x312.jpg 728w" 
+                   data-src="images/got.jpg" data-expand="600" 
                    data-sizes="(max-width: 364px) 100vw, 364px" />
                    <span class="g1-frame-icon g1-frame-icon-"></span></div></a>
                </figure>
@@ -239,7 +270,7 @@
                        <header class="entry-header">
                            <div class="entry-before-title"></div>
                            <h3 class="g1-delta g1-delta-1st entry-title">
-                           <a href="https://bimber.bringthepixel.com/gagster/best-balloons-2017/" rel="bookmark">The Best Balloons of 2017</a></h3>
+                           <a href="images/got.jpg" rel="bookmark">Game of Thrones Season 8 was a total fail</a></h3>
                        </header>
                    </div>
            </article>
@@ -250,17 +281,16 @@
                <figure class="entry-featured-media " >
                    <a title="23 Of The Most WTF Nails You Won&#8217;t Be Able To Forget" class="g1-frame" href="https://bimber.bringthepixel.com/gagster/wtf-nails-wont-able-forget/">
                    <div class="g1-frame-inner" style="padding-bottom: 42.85714286%;">
-                   <img width="364" height="156" src="https://bimber.bringthepixel.com/gagster/wp-content/plugins/media-ace/includes/lazy-load/images/blank.png" 
+                   <img width="364" height="156" src="images/smartphone.jpg" 
                    class="attachment-bimber-grid-fancy size-bimber-grid-fancy lazyload wp-post-image" alt="" 
-                   data-src="https://bimber.bringthepixel.com/gagster/wp-content/uploads/sites/3/2015/11/wtf_07_v01-364x156.jpg" data-expand="600" 
-                   data-srcset="https://bimber.bringthepixel.com/gagster/wp-content/uploads/sites/3/2015/11/wtf_07_v01-364x156.jpg 364w, https://bimber.bringthepixel.com/gagster/wp-content/uploads/sites/3/2015/11/wtf_07_v01-728x312.jpg 728w" 
+                   data-src="images/smartphone.jpg" data-expand="600" 
                    data-sizes="(max-width: 364px) 100vw, 364px" />
                    <span class="g1-frame-icon g1-frame-icon-"></span></div></a>
                </figure>
                    <div class="entry-counter"></div>
                    <div class="entry-body">
                        <header class="entry-header"><div class="entry-before-title"></div><h3 class="g1-delta g1-delta-1st entry-title">
-                       <a href="https://bimber.bringthepixel.com/gagster/wtf-nails-wont-able-forget/" rel="bookmark">23 Of The Most WTF Nails You Won&#8217;t Be Able To Forget</a></h3>
+                       <a href="images/smartphone.jpg" rel="bookmark">Smartphone that changes the age of a person</a></h3>
                        </header>
                    </div>
            </article>
@@ -271,18 +301,17 @@
                <figure class="entry-featured-media " >
                    <a title="25 Things That Will Change Your Mind About Eating Meat" class="g1-frame" href="https://bimber.bringthepixel.com/gagster/things-will-change-mind-eating-meat/">
                    <div class="g1-frame-inner" style="padding-bottom: 42.85714286%;">
-                   <img width="364" height="156" src="https://bimber.bringthepixel.com/gagster/wp-content/plugins/media-ace/includes/lazy-load/images/blank.png" 
+                   <img width="364" height="156" src="images/minions.gif" 
                    class="attachment-bimber-grid-fancy size-bimber-grid-fancy lazyload wp-post-image" alt="" 
-                   data-src="https://bimber.bringthepixel.com/gagster/wp-content/uploads/sites/3/2015/11/wtf_05_v01-364x156.jpg" data-expand="600" 
-                   data-srcset="https://bimber.bringthepixel.com/gagster/wp-content/uploads/sites/3/2015/11/wtf_05_v01-364x156.jpg 364w, https://bimber.bringthepixel.com/gagster/wp-content/uploads/sites/3/2015/11/wtf_05_v01-728x312.jpg 728w" 
-                   data-sizes="(max-width: 364px) 100vw, 364px" />
+                   data-src="images/minions.gif" data-expand="600" 
+                    data-sizes="(max-width: 364px) 100vw, 364px" />
                    <span class="g1-frame-icon g1-frame-icon-"></span></div></a>
                </figure>
                    <div class="entry-counter"></div>
                    <div class="entry-body">
                        <header class="entry-header">
                        <div class="entry-before-title"></div><h3 class="g1-delta g1-delta-1st entry-title">
-                       <a href="https://bimber.bringthepixel.com/gagster/things-will-change-mind-eating-meat/" rel="bookmark">25 Things That Will Change Your Mind About Eating Meat</a></h3>
+                       <a href="images/minions.gif" rel="bookmark">10 exciting ways to celebrate your birthday</a></h3>
                        </header>
                    </div>
            </article>
@@ -291,7 +320,7 @@
    </div>
    </div>
    </div>
-   </aside>
+</aside>
 
 <aside id="mc4wp_form_widget-13" class="widget widget_mc4wp_form_widget">
         <header><h2 class="g1-delta g1-delta-2nd widgettitle">
@@ -327,5 +356,5 @@
             <input type="hidden" name="_mc4wp_form_element_id" value="mc4wp-form-2" /><div class="mc4wp-response"></div>
             <p class="g1-meta g1-newsletter-privacy">Don't worry, we don't spam</p>
         </form>
-    </aside>
+</aside>
    @endsection

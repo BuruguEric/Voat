@@ -68,6 +68,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+        Session::flash('success_register','Successfull register. Welcome to the Voat community');
         return redirect()->route('index');
     }
 }

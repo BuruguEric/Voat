@@ -48,7 +48,7 @@
                             @endauth 
                         </a> 
                     </span> 
-                    <time class="entry-date" datetime="2019-05-03T15:10:43" itemprop="datePublished">May 3, 2019, 3:10 pm</time>
+                    <time class="entry-date" itemprop="datePublished">{{$comment->created_at}}</time>
                 </p>
             </div>
             <style>
@@ -63,7 +63,7 @@
             </script>
             <div class="entry-todome g1-dropable snax">
                 <div class="snax-voting snax-voting-positive snax-voting-s" data-snax-item-id="271">
-                    <div class="snax-voting-score"> <strong>675</strong> points</div>
+                    <div class="snax-voting-score"> </div>
                     <form action="{{ route('like') }}" id="vote_form" method="POST">
                         @csrf
                         @auth
