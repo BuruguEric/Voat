@@ -83,7 +83,7 @@
                    display:none !important;
                }
            }
-           @media only screen and (min-width: 961px  ){
+           @media only screen and (min-width: 961px  ){ 
                .adace-hide-on-desktop{
                    display:none !important;
                }

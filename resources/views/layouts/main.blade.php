@@ -14,7 +14,7 @@
             <div class="g1-row g1-row-layout-page g1-hb-row g1-hb-row-normal g1-hb-row-b g1-hb-row-2 g1-hb-full g1-hb-sticky-on g1-hb-shadow-off">
             
             @include('partials._navbar')
-            
+
             <div class="g1-row-background"></div></div></div>
             
             <div class="g1-row g1-row-layout-page g1-hb-row g1-hb-row-normal g1-hb-row-c g1-hb-row-3 g1-hb-full g1-hb-sticky-off g1-hb-shadow-off">
@@ -84,7 +84,7 @@
                     <div class="snax-cta"><div class="snax-cta-body">
                     <p class="g1-alpha g1-alpha-1st">Got something awesome to share with others?</p>
                     @if (Auth::user())
-                        <a href="{{ route('create') }}"><button class="btn btn-primary btn-block">Create</button></a>
+                        <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#myModal">Create</button>
                     @else
                         <a href="{{ route('login') }}"><button class="btn btn-primary btn-block">Create</button></a>
                     @endif
@@ -135,6 +135,8 @@
                 
                 </div>
                     </div><div class="g1-row-background"></div>
+
+                    
             </div> 
             <!-- END OF FOOTER -->
             
@@ -252,7 +254,66 @@
     <script type='text/javascript'>var mc4wp_forms_config = [];</script> <!--[if lte IE 9]> -->
     <script type='text/javascript' src='https://bimber.bringthepixel.com/gagster/wp-content/plugins/mailchimp-for-wp/assets/js/third-party/placeholders.min.js?ver=4.3.3'></script>
     <script type="text/javascript" defer src="https://bimber.bringthepixel.com/gagster/wp-content/cache/autoptimize/3/js/autoptimize_4852c8dfbf84d5973d64e9fa46e456b5.js"></script>
-    
+    <div class="container">
+            <div class="modal fade" id="myModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button> 
+                        <h1>Share Your Thoughts</h1>
+                        </div>
+                        <div class="modal-body">
+                            <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
+                                {{ csrf_field() }}
+                                
+                                <div class="form-group">
+                                    <label for="title">Whatchu Feel Like Talking About <span class="require">*</span></label>
+                                    <select name="category" class="form-control" id="sel1">
+                                        <option>TV</option>
+                                        <option>Aww</option>
+                                        <option>GIFs</option>
+                                        <option>Music</option>
+                                        <option>Books</option>
+                                        <option>Science</option>
+                                        <option>Sports</option>
+                                        <option>Gaming</option>
+                                        <option>Technology</option>
+                                        <option>Programming</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="title">Caption <span class="require">*</span></label>
+                                    <input type="text" class="form-control" name="subject" />
+                                </div>                                
+                                
+                                <div class="form-group">
+                                    <label for="description">Comment</label>
+                                    <textarea rows="5" class="form-control" name="body" ></textarea>
+                                </div>
+
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                                    </div>
+                                    <div class="custom-file">
+                                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                        <input type="file" name="uploads" accept="image/*" class="btn-primary" id="inputGroupFile01"
+                                        aria-describedby="inputGroupFileAddon01"><br>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-success">Create</button>
+                                    <button class="btn btn-primary">Cancel</button>
+                                </div>
+                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 </body>
 </html>
 
