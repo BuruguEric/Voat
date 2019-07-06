@@ -14,7 +14,7 @@ class AddVotedToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->Integer('voted')->default(0)->after('email');
+            $table->Integer('voted')->default(0)->after('name');
         });
     }
 
