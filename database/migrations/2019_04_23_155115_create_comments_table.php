@@ -17,10 +17,6 @@ class CreateCommentsTable extends Migration
             $table->bigIncrements('id');
             $table->string('subject');
             $table->mediumText('body');
-            $table->text('uploads');
-            $table->string('category');
-            $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
